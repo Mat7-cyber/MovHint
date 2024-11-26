@@ -1,1 +1,53 @@
-// Specific CSS for your home-page
+body {
+  background-color: #1B1810;
+}
+
+h1 {
+  color: #DAAD00;
+}
+
+h2 {
+  color: #DAAD00;
+}
+
+p {
+  color: #FAE9B8;
+}
+
+
+
+  // Header
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.header .greeting {
+  display: flex;
+  flex-direction: column;
+  padding-right: 50px;
+}
+.header .greeting h1 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.header .greeting span {
+  font-size: 0.9em;
+  color: #FAE9B8;
+}
+.header .favorite {
+  background-color: #392B00;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #66541F;
+}
+.favorite{
+  width: 40px;
+  height: 40px;
+}
+  // header
