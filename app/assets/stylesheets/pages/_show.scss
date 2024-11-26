@@ -1,0 +1,53 @@
+body {
+	background-color: #1B1810;
+  }
+
+h1 {
+	color: #DAAD00;
+  }
+
+h2 {
+	color: #DAAD00;
+  }
+
+p {
+	color: #FAE9B8;
+  }
+
+card {
+  background-color: #392B00;
+  }
+
+border_card {
+  border: 1px solid #66541F;
+  }
+
+button {
+	background-color: #392B00;
+	border: 2px solid #66541F;
+	border-radius: 10px;
+	color: #DAAD00;
+	padding: 10px;
+}
+  
+i {
+  color: #DAAD00;
+}
+
+.container-show {
+	margin: 15px 45px 15px 45px;
+	background-color: red;
+	padding: 10px;
+}
+
+.movie-poster {
+	height: 300px;
+}
+
+.map {
+	transform: scale(0.5);
+}
+
+.stream_icon {
+	border-radius: 5px;
+}

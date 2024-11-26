@@ -1,0 +1,43 @@
+<div class="container-show">
+
+	<div class="movie-poster", style="background-image:url('<%= @movie.poster_path %>')">
+		<h1><%= @movie.original_title %></h1>
+	</div>
+
+	<div class="actions">
+		<button>Watch trailer: <i class="fa-solid fa-play"></i></button>
+		<button>Add to my favorites: <i class="fa-solid fa-thumbs-up"></i></button>
+	</div>
+	
+	<div class="movie-infos">
+		<div class="rating-stars">
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+			<i class="fa-solid fa-star"></i>
+		</div>
+		<h2>RATING:</h2> <p><%= @movie.vote_average.round(2)%>/10</p>
+		<h2>SYNOPSIS:</h2> <p><%= @movie.overview%></p>
+		<h2>DIRECTOR:</h2> <p>Brian Levant</p>
+		<h2>ACTORS:</h2> <p>Arnold Schwarzenegger Jake Llyod Phil Hartman</p>
+		<h2>GENRES:</h2> <p><%= @movie.genres%></p>
+	</div>
+
+	<div class="movie-availability">
+		<h2>Where to watch?</h2>
+		<img src="<%= image_path('https://image.tmdb.org/t/p/original/97yvRBw1GzX7fXprcF80er19ot.jpg') %>" alt="Logo Disney+", class="stream_icon"/>
+		<img src="<%= image_path('https://image.tmdb.org/t/p/original/9ghgSC0MA082EL6HLCW3GalykFD.jpg') %>" alt="Logo Apple TV", class="stream_icon"/>
+		<img src="<%= image_path('https://image.tmdb.org/t/p/original/seGSXajazLMCKGB5hnRCidtjay1.jpg') %>" alt="Logo Amazon", class="stream_icon"/>
+	</div>
+
+	<div class="movie-map">
+		<img src="<%= image_path('https://www.istanbul-visit.com/carte/etats-unis/california/los-angeles/atlas_plan_de_la.gif') %>" alt="Map L.A.", class="map"/>
+	</div>
+
+</div>
