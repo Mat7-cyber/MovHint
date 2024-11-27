@@ -8,4 +8,39 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+
+
+Movie.destroy_all
+
+Movie.create!(
+poster_path: "https://image.tmdb.org/t/p/original/zpYYN8NklsFR3iO1raCKzV3tcGf.jpg",
+overview: "Howard Langston, a salesman for a mattress company, is constantly kept busy at his job, disappointing his son. After he misses his son's karate exposition, Howard vows to make it up to him by buying an action figure of his son's favorite television hero for Christmas. Unfortunately for Howard, it is Christmas Eve, and every store is sold out of Turbo Man. Now, Howard must travel all over town and compete with everybody else to find a Turbo Man action figure.",
+release_date: "1996-11-21",
+genres: ["Family" "Comedy" "Adventure"],
+original_title: "Jingle All the Way",
+original_language: "en",
+backdrop_path: "https://image.tmdb.org/t/p/original/rnn6sGMGPpM8VfVmCMFxsjKvz7q.jpg",
+vote_average: 6.037,
+production_companies: "20th Century Fox",
+runtime: 89,
+tagline: "Two dads, one toy, no prisoners.")
+#
+#
 alex = User.create(email: "alex@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+
+Movie.create!(
+  original_title: "The Dark Knight",
+poster_path: "https://xl.movieposterdb.com/08_06/2008/468569/xl_468569_fe24b125.jpg",
+vote_average: 9.0,
+genres: "Thriller",
+release_date: "2008"
+)
+
+Movie.create!(
+  original_title: "The Lord of the Rings: The Return of the King",
+  poster_path: "https://xl.movieposterdb.com/22_11/2003/167260/xl_the-lord-of-the-rings-the-return-of-the-king-movie-poster_a977da10.jpg",
+vote_average: 8.0,
+genres: "Fantasy",
+release_date: "2003"
+)
+
