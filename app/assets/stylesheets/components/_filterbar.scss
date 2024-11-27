@@ -1,0 +1,41 @@
+.filter-bar-container {
+  position: relative;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.filter-bar {
+  display: flex;
+  overflow: hidden;
+}
+
+.filter-bar-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr)
+}
+
+.filter-btn {
+  flex: 0 0 auto;
+  padding: 3px;
+  background-color: #392B00;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #66541F;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-btn p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.filter-btn i {
+  margin-right: 5px;
+}

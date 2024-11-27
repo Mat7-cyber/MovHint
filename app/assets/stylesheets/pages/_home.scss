@@ -4,6 +4,7 @@ body {
 
 h1 {
   color: #DAAD00;
+  font-size: 1.2rem;
 }
 
 h2 {
@@ -51,3 +52,45 @@ p {
   height: 40px;
 }
   // header
+
+  // "We’ll Make You an Offer You Can't Refuse"
+.card {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url(https://s.abcnews.com/images/Entertainment/HT-godfatrher-jef-170308_16x9_1600.jpg);
+    background-size: cover; // L'image couvre entièrement le conteneur
+    background-color: #392B00; // Couleur de fond de la carte
+    border: 1px solid #66541F; // Supprime les bordures par défaut
+    text-align: center; // Centre le texte à l'intérieur de la carte
+    margin: 20px;
+
+
+
+    .card-body {
+      padding: 20px; // Ajoute du padding à l'intérieur de la carte
+
+      .card-title {
+        font-size: 1.2rem; // Taille de la police pour le titre de la carte
+        color: #DAAD00; // Couleur du texte pour le titre
+        margin-bottom: 15px; // Espacement en bas du titre
+      }
+
+      .card-text {
+        font-size: 1rem; // Taille de la police pour le texte de la carte
+        color: #6c757d; // Couleur du texte
+        margin-bottom: 20px;
+        visibility: hidden; // Espacement en bas du texte
+
+      }
+
+      .btn {
+        font-size: 12px;
+        padding: 10px 10px;
+        border-radius: 5px;
+
+        &.btn-primary {
+          background-color: #392B00;
+          border: 1px solid #66541F;
+        }
+      }
+    }
+}
+  // "We’ll Make You an Offer You Can't Refuse"
