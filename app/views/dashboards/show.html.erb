@@ -1,0 +1,53 @@
+
+<div class="container">
+<h1 class="title-profile" ><%= "Profile" %></h1>
+
+<%# faire un avatar cloudinary %>
+<%# modifier name email %>
+<%# faire les chemins des liens %>
+<%# ajouter la navbar %>
+<div class="card-profile" >
+<img class="avatar-profile" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+<div class="profile-infos">
+<h2 ><%="my name"%></h2>
+<p><%= "my email "%></p>
+</div>
+</div>
+
+
+<div class="account-profile">
+  <h2><%= "Account" %></h2>
+  <a class="btn-profile" href="#">
+    <span class="icon-circle-account"><i class="fa-solid fa-user"></i></span>
+    <%= "member" %>
+  </a>
+</div>
+
+<div class="movhint-liked-profile" >
+<h2><%= "MowHint Liked" %></h2>
+<a class="btn-profile" href="#">
+ <span class="icon-circle-liked"><i class="fa-solid fa-user"></i></span>
+ <%="movhint liked/Actors and Directors"%> </a>
+</div>
+
+<div class="more-profile" >
+<h2><%= "More" %></h2>
+<div class="spacing">
+<a class="btn-profile" href="#">
+  <span class="icon-circle-more"><i class="fa-solid fa-shield"></i></span>
+  <%="Legal and policies"%></a>
+</div>
+<div class="spacing">
+<a class="btn-profile" href="#">
+  <span class="icon-circle-more"><i class="fa-solid fa-question"></i></span>
+  <%="Help & Feedback"%> </a>
+</div>
+<div class="spacing">
+<a class="btn-profile" href="#">
+  <span class="icon-circle-more"><i class="fa-solid fa-info"></i></span>
+  <%="About Us"%> </a>
+</div>
+</div>
+
+<a href="#" class="btn-log"> <%="Log out"%> </a>
+</div>

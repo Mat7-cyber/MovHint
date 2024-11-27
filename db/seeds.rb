@@ -9,6 +9,7 @@
 #   end
 
 
+
 Movie.destroy_all
 
 Movie.create!(
