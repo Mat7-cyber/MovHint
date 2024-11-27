@@ -1,51 +1,99 @@
-<div class="movie-poster", style="background-image:url('<%= @movie.poster_path %>')">
-	<h1 class="movie-title"><%= @movie.original_title %></h1>
-	<button class="movie-trailer">Watch trailer: <i class="fa-solid fa-play"></i></button>
+<div class="movie-poster">
+	<%= image_tag @movie.poster_path, class:"poster" %>
+	<button type="button" class="button movie-trailer" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		<strong>WATCH TRAILER:</strong> <i class="fa-solid fa-play"></i>
+	</button>
+</div>
+
+<div class="button-center">
+	<button class="button-movie-favorite"
+	data-controller="event-listener"
+	data-action="click->event-listener#enable">
+	Add to my favorites: <i class="fa-solid fa-plus"></i>
+	</button>
 </div>
 
 <div class="container-show">
-
-	<button>Add to my favorites: <i class="fa-solid fa-thumbs-up"></i></button>
 	
 	<div class="movie-infos">
-		<h2>RATING:</h2> 
-			<div class="rating">
-				<p><%= @movie.vote_average.round(2)%>/10</p>
-				<div class="rating-stars">
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-					<i class="fa-solid fa-star"></i>
-				</div>
+
+		<h1 class="movie-title"><strong><%= @movie.original_title%></strong></h1>
+
+		<h3 class="tagline"><em><%= @movie.tagline%></em></h3>
+
+		<div class="infos">
+			<h3><strong>RUNTIME:</strong></h3>
+			<p class="number-crew-genre"><%= @movie.runtime%> minutes</p>
+		</div>
+
+		<div class="infos">
+			<h3><strong>RELEASE DATE:</strong></h3>
+			<p class="number-crew-genre"><%= @movie.release_date[0..3]%></p>
+		</div>
+
+		<div class="infos">
+			<h3><strong>RATING:</strong></h3> 
+			<div class="rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
+				<p class="number-crew-genre"
+				data-stars-target="rating-number"
+				data-action="click>rating-number#display_stars"><%= @movie.vote_average.round(2)%></p>
 			</div>
-		<h2>SYNOPSIS:</h2> 
-			<p><%= @movie.overview%></p>
-		<h2>DIRECTOR:</h2> 
-			<p>Brian Levant</p>
-		<h2>CASTING:</h2>
+		</div>
+
+		<div class="infos">
+			<h3><strong>SYNOPSIS:</strong></h3> 
+			<p class="number-crew-genre"><%= @movie.overview%></p>
+		</div>
+
+		<div class="infos">
+			<h3><strong>DIRECTOR:</strong></h3> 
+			<p class="number-crew-genre">Brian Levant</p>
+		</div>
+
+		<div class="infos">
+			<h3><strong>CASTING:</strong></h3>
 			<div class="actors">
-				<p>Arnold Schwarzenegger</p>
-				<p>Jake Llyod</p>
-				<p>Phil Hartman</p>
+				<p class="number-crew-genre">Arnold Schwarzenegger</p>
+				<p class="number-crew-genre">Jake Llyod</p>
+				<p class="number-crew-genre">Phil Hartman</p>
 			</div>
-		<h2>GENRES:</h2> <p><%= @movie.genres%></p>
+		</div>
+
+		<div class="infos">
+		<h3><strong>GENRES:</strong></h3> 
+			<div class="genres">
+				<p class="number-crew-genre">Family</p>
+				<p class="number-crew-genre">Comedy</p>
+				<p class="number-crew-genre">Adventure</p>
+			</div>
+		</div>
+
 	</div>
 
 	<div class="movie-availability">
-		<h2>See it at home</h2>
-		<img src="<%= image_path('https://image.tmdb.org/t/p/original/97yvRBw1GzX7fXprcF80er19ot.jpg') %>" alt="Logo Disney+", class="stream_icon"/>
-		<img src="<%= image_path('https://image.tmdb.org/t/p/original/9ghgSC0MA082EL6HLCW3GalykFD.jpg') %>" alt="Logo Apple TV", class="stream_icon"/>
+		<h3 class="stream-buy">Watch your movie at home!</h3>
+		<a href="https://www.disneyplus.com/" target="_blank"><img src="<%= image_path('https://image.tmdb.org/t/p/original/97yvRBw1GzX7fXprcF80er19ot.jpg') %>" alt="Logo Disney+", class="stream_icon"/></a>
+		<a href="https://tv.apple.com" target="_blank"><img src="<%= image_path('https://image.tmdb.org/t/p/original/9ghgSC0MA082EL6HLCW3GalykFD.jpg') %>" alt="Logo Apple TV", class="stream_icon"/></a>
 	</div>
 
 	<div class="movie-map">
-		<h2>See it in theaters or buy it</h2>
+		<h3 class="stream-buy">Watch your movie in theaters or buy it!</h3>
 		<img src="<%= image_path('https://www.istanbul-visit.com/carte/etats-unis/california/los-angeles/atlas_plan_de_la.gif') %>" alt="Map L.A.", class="map"/>
 	</div>
 
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="max-width: 400px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+
+					<iframe width=100% height=100% src="https://www.youtube.com/embed/jhJYMEzQA-Q?si=LPpyAJ5oCkkKj75K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+			</div>
+		</div>
+	</div>
 </div>
