@@ -16,7 +16,20 @@ Movie.create!(
 poster_path: "https://image.tmdb.org/t/p/original/zpYYN8NklsFR3iO1raCKzV3tcGf.jpg",
 overview: "Howard Langston, a salesman for a mattress company, is constantly kept busy at his job, disappointing his son. After he misses his son's karate exposition, Howard vows to make it up to him by buying an action figure of his son's favorite television hero for Christmas. Unfortunately for Howard, it is Christmas Eve, and every store is sold out of Turbo Man. Now, Howard must travel all over town and compete with everybody else to find a Turbo Man action figure.",
 release_date: "1996-11-21",
-genres: ["Family" "Comedy" "Adventure"],
+genres: [
+  {
+  "id": 10751,
+  "name": "Family"
+  },
+  {
+  "id": 35,
+  "name": "Comedy"
+  },
+  {
+  "id": 12,
+  "name": "Adventure"
+  }
+  ],
 original_title: "Jingle All the Way",
 original_language: "en",
 backdrop_path: "https://image.tmdb.org/t/p/original/rnn6sGMGPpM8VfVmCMFxsjKvz7q.jpg",
@@ -24,6 +37,7 @@ vote_average: 6.037,
 production_companies: "20th Century Fox",
 runtime: 89,
 tagline: "Two dads, one toy, no prisoners.")
+
 #
 #
 alex = User.create(email: "alex@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
@@ -60,3 +74,5 @@ genres: "Horror",
 release_date: "2003"
 )
 
+
+# useful pour les vidéos https://www.youtube.com/watch?v=BzoHTJdzniQ
