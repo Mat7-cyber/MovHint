@@ -1,0 +1,47 @@
+.card-moviecontainer-pref {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.responsive-poster-pref {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+.card-movieposter-pref {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.overlay-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 0.9rem;
+}
+
+.remove-bullet {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-right-icon {
+  position: absolute;
+  top: 10px; /* Distance depuis le haut */
+  right: 10px; /* Distance depuis la droite */
+  font-size: 1.5rem; /* Taille de l'icône */
+  color: white; /* Couleur de l'icône */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  border-radius: 50%; /* Forme circulaire */
+  padding: 5px; /* Espace autour de l'icône */
+  z-index: 10; /* Priorité d'affichage */
+}
