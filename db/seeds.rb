@@ -40,7 +40,7 @@ tagline: "Two dads, one toy, no prisoners.")
 
 #
 #
-alex = User.create(email: "alex@mail.com", password: "password", address: "2 avenue des saules, Lille 59000")
+alex = User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000")
 
 Movie.create!(
   original_title: "The Dark Knight",
@@ -76,3 +76,4 @@ release_date: "2003"
 
 
 # useful pour les vidéos https://www.youtube.com/watch?v=BzoHTJdzniQ
+
