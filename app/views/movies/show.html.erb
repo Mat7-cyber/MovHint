@@ -35,7 +35,7 @@
 
 		<div class="infos">
 			<h3><strong>RATING:</strong></h3>
-			<div class="rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
+			<div class="infos-rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
 				<p class="number-crew-genre"
 				data-stars-target="rating-number"
 				data-action="click>rating-number#display_stars"><%= @movie.vote_average.round(2)%></p>
@@ -80,7 +80,7 @@
 
 	<div class="movie-map">
 		<h3 class="stream-buy">Watch your movie in theaters or buy it!</h3>
-		<img src="<%= image_path('https://cdn.shopify.com/s/files/1/2198/0277/files/los-angeles-california.jpg?13736522005723903826') %>" alt="Map L.A.", class="map"/>
+		<%= render "mapbox" %>
 	</div>
 
 </div>
@@ -100,4 +100,4 @@
 	</div>
 </div>
 
-<%= render "mapbox" %>
+
