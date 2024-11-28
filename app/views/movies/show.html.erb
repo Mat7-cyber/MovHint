@@ -5,13 +5,15 @@
 	</button>
 </div>
 
-<div class="button-center">
-	<button class="button-movie-favorite"
-	data-controller="event-listener"
-	data-action="click->event-listener#enable">
-	Add to my favorites: <i class="fa-solid fa-plus"></i>
-	</button>
-</div>
+<% if current_user %>
+	<div class="button-center">
+		<button class="button-movie-favorite <%= "button-liked" if @liked %>" 
+		data-controller="event-listener"
+		data-action="click->event-listener#enable">
+		Add to my favorites: <i class="fa-solid fa-plus"></i>
+		</button>
+	</div>
+<% end %>
 
 <div class="container-show">
 
@@ -99,5 +101,3 @@
 		</div>
 	</div>
 </div>
-
-

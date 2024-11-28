@@ -6,6 +6,10 @@
         <% end %>
       </div>
 
+      <div>
+        <%= link_to "log out", destroy_user_session_path, turbo: false, data: { turbo_method: :delete } %>
+      </div>
+
 
       <div class="navbar-btn-profile ">
         <%= link_to dashboard_path do %>
