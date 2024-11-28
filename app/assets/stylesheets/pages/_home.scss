@@ -15,7 +15,10 @@ p {
   color: #FAE9B8;
 }
 
-
+hr {
+  color: #FAE9B8;
+  margin: 20px;
+}
 
   // Header
 .header {
@@ -55,29 +58,31 @@ p {
 
   // "We’ll Make You an Offer You Can't Refuse"
 .card {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url(https://s.abcnews.com/images/Entertainment/HT-godfatrher-jef-170308_16x9_1600.jpg);
-    background-size: cover; // L'image couvre entièrement le conteneur
-    background-color: #392B00; // Couleur de fond de la carte
-    border: 1px solid #66541F; // Supprime les bordures par défaut
-    text-align: center; // Centre le texte à l'intérieur de la carte
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(https://s.abcnews.com/images/Entertainment/HT-godfatrher-jef-170308_16x9_1600.jpg);
+    background-size: cover;
+    background-color: #392B00;
+    text-align: center;
     margin: 20px;
+    border-radius: 11px;
 
 
 
     .card-body {
-      padding: 20px; // Ajoute du padding à l'intérieur de la carte
+      padding: 20px;
 
       .card-title {
-        font-size: 1.2rem; // Taille de la police pour le titre de la carte
-        color: #DAAD00; // Couleur du texte pour le titre
-        margin-bottom: 15px; // Espacement en bas du titre
+        font-size: 1.2rem;
+        color: #DAAD00;
+        margin-bottom: 15px;
+        font-weight: bold;
+        letter-spacing: 1px;
       }
 
       .card-text {
-        font-size: 1rem; // Taille de la police pour le texte de la carte
-        color: #6c757d; // Couleur du texte
+        font-size: 1rem;
+        color: #6c757d;
         margin-bottom: 20px;
-        visibility: hidden; // Espacement en bas du texte
+        visibility: hidden;
 
       }
 
@@ -85,12 +90,107 @@ p {
         font-size: 12px;
         padding: 10px 10px;
         border-radius: 5px;
+        letter-spacing: 0.5px;
 
         &.btn-primary {
-          background-color: #392B00;
+          background-color: #DAAD00;
           border: 1px solid #66541F;
         }
       }
     }
 }
   // "We’ll Make You an Offer You Can't Refuse"
+
+  // "Most Popular"
+
+.mostpopular {
+    margin: 20px;
+}
+
+.header h2 {
+    margin: -18px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.see-all {
+    font-size: 10px;
+    color:  #FAE9B8;
+}
+
+.movies {
+    display: flex;
+    gap: 20px;
+}
+
+.movie {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    height: 180px;
+    position: relative;
+}
+
+.rating {
+    background-color: #392B00;
+    color: #FAE9B8;
+    padding: 2px 6px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 10px;
+    border: 1px solid #66541F;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+}
+
+.movie p{
+  font-size: 11px;
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+}
+
+  // "Most Popular"
+
+  // "Top Rating"
+
+.toprating {
+  margin: 20px;
+}
+
+  // "Top Rating"
+
+  // "Upcoming"
+
+.upcoming {
+  margin: 20px;
+}
+
+.header h6 {
+  color: #DAAD00;
+  font-size: 10px;
+  padding-right: 90px;
+  margin-bottom: -2px;
+  letter-spacing: 1px;
+}
+
+.release {
+  background-color: #392B00;
+  color: #FAE9B8;
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 10px;
+  border: 1px solid #66541F;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+}

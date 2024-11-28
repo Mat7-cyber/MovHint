@@ -7,16 +7,18 @@
 .filter-bar {
   display: flex;
   overflow: hidden;
+  justify-content: center;
 }
 
 .filter-bar-inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr)
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
 }
 
 .filter-btn {
   flex: 0 0 auto;
-  padding: 3px;
+  padding: 9px;
   background-color: #392B00;
   margin: 5px;
   border-radius: 5px;
