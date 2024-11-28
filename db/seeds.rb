@@ -38,40 +38,56 @@ production_companies: "20th Century Fox",
 runtime: 89,
 tagline: "Two dads, one toy, no prisoners.")
 
+Movie.create!(
+poster_path: "https://image.tmdb.org/t/p/original/fn3aXwADNC0nmJ51GYnkrOseVgB.jpg",
+overview: "NYPD cop John McClane's plan to reconcile with his estranged wife is thrown for a serious loop when, minutes after he arrives at her office, the entire building is overtaken by a group of terrorists. With little help from the LAPD, wisecracking McClane sets out to single-handedly rescue the hostages and bring the bad guys down.",
+release_date: "1988-07-15",
+genres: [
+  {
+  "id": 28,
+  "name": "Action"
+  },
+  {
+  "id": 53,
+  "name": "Thriller"
+  },
+  ],
+original_title: "Die Hard",
+original_language: "en",
+backdrop_path: "https://image.tmdb.org/t/p/original/5kHVblr87FUScuab1PVSsK692IL.jpg",
+vote_average: 7.8,
+production_companies: "20th Century Fox",
+runtime: 132,
+tagline: "Twelve terrorists. One cop. The odds are against John McClane... That's just the way he likes it.")
+
+Movie.create!(
+poster_path: "https://image.tmdb.org/t/p/original/oQffRNjK8e19rF7xVYEN8ew0j7b.jpg",
+overview: "Tired of scaring humans every October 31 with the same old bag of tricks, Jack Skellington, the spindly king of Halloween Town, kidnaps Santa Claus and plans to deliver shrunken heads and other ghoulish gifts to children on Christmas morning. But as Christmas approaches, Jack's rag-doll girlfriend, Sally, tries to foil his misguided plans.",
+release_date: "1993-10-09",
+genres: [
+  {
+  "id": 14,
+  "name": "Fantasy"
+  },
+  {
+  "id": 16,
+  "name": "Animation"
+  },
+  {
+  "id": 10751,
+  "name": "Family"
+  }
+  ],
+original_title: "The Nightmare Before Christmas",
+original_language: "en",
+backdrop_path: "https://image.tmdb.org/t/p/original/xWT5F1DNxciNLEMXRl49iq8zvN7.jpg",
+vote_average: 7.841,
+production_companies: "Touchstone Pictures",
+runtime: 76,
+tagline: "What's this?")
+
 #
 #
 alex = User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000")
 
-Movie.create!(
-  original_title: "The Dark Knight",
-poster_path: "https://xl.movieposterdb.com/08_06/2008/468569/xl_468569_fe24b125.jpg",
-vote_average: 9.0,
-genres: "Thriller",
-release_date: "13 january 2008"
-)
-
-Movie.create!(
-  original_title: "The Lord of the Rings: The Return of the King",
-  poster_path: "https://xl.movieposterdb.com/22_11/2003/167260/xl_the-lord-of-the-rings-the-return-of-the-king-movie-poster_a977da10.jpg",
-vote_average: 8.0,
-genres: "Fantasy",
-release_date: "1 january 2003"
-)
-
-Movie.create!(
-  original_title: "The Lord of the Rings: The Return of the King",
-  poster_path: "https://xl.movieposterdb.com/20_06/2018/1677720/xl_1677720_376c9e0b.jpg",
-vote_average: 8.0,
-genres: "Fantasy",
-release_date: "2003"
-)
-
-Movie.create!(
-  original_title: "Harry potter",
-  poster_path: "https://xl.movieposterdb.com/21_03/1993/108052/xl_108052_bd91d0b6.jpg",
-vote_average: 5.0,
-genres: "Horror",
-release_date: "2003"
-)
-
-# useful pour les vidéos https://www.youtube.com/watch?v=BzoHTJdzniQ
+# useful pour les vidéos https://www.youtube.com/watch?v=lVtetOjX_vk
