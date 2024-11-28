@@ -94,13 +94,13 @@
             <div>
               <i class="fa-solid fa-heart likeplacement"></i>
               <%= image_tag movie.poster_path, alt: "#{movie.original_title} Poster", class: "card-movieposter-pref postersearched" %>
-              <div class="voteplacementpref"><p> <%= movie.vote_average %> <i class="fa-solid fa-star"></i></p></div>
+              <div class="voteplacementpref"><p> <%= movie.vote_average.round(2) %> <i class="fa-solid fa-star"></i></p></div>
             </div>
             <div class="descriptionsearch">
-              <h4 style="color: #DAAD00"><%= movie.original_title %></h4>
-              <p><i class="fa-regular fa-calendar-check "></i><%= movie.release_date %></p>
-              <p><i class="fa-regular fa-clock "></i><%= movie.runtime %></p>
-              <p><i class="fa-solid fa-film"></i><%= movie.genres %></p>
+              <h4 style="color: #DAAD00"> <%= movie.original_title %></h4>
+              <p><i class="fa-regular fa-calendar-check "></i> <%= movie.release_date[0..3] %></p>
+              <p><i class="fa-regular fa-clock "></i> <%= movie.runtime %> minutes</p>
+              <p><i class="fa-solid fa-film"> </i><%= movie.genres[0]["name"] %></p>
             </div>
           </div>
         </div>

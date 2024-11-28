@@ -19,7 +19,9 @@
 
 		<h1 class="movie-title"><strong><%= @movie.original_title%></strong></h1>
 
-		<h3 class="tagline"><em><%= @movie.tagline%></em></h3>
+		<div class="movie-tagline">
+				<h4 class="tagline"><em><i class="fa-solid fa-quote-left"></i> <%= @movie.tagline%> <i class="fa-solid fa-quote-left fa-mirror"></i></em></h4>
+		</div>
 
 		<div class="infos">
 			<h3><strong>RUNTIME:</strong></h3>
@@ -91,7 +93,7 @@
 			</div>
 			<div class="modal-body">
 
-					<iframe width=100% height=100% src="https://www.youtube.com/embed/jhJYMEzQA-Q?si=LPpyAJ5oCkkKj75K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+					<iframe width=100% height=100% src="https://www.youtube.com/watch?v=lVtetOjX_vk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 			</div>
 		</div>
