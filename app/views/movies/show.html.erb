@@ -14,7 +14,7 @@
 </div>
 
 <div class="container-show">
-	
+
 	<div class="movie-infos">
 
 		<h1 class="movie-title"><strong><%= @movie.original_title%></strong></h1>
@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="infos">
-			<h3><strong>RATING:</strong></h3> 
+			<h3><strong>RATING:</strong></h3>
 			<div class="rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
 				<p class="number-crew-genre"
 				data-stars-target="rating-number"
@@ -41,12 +41,12 @@
 		</div>
 
 		<div class="infos">
-			<h3><strong>SYNOPSIS:</strong></h3> 
+			<h3><strong>SYNOPSIS:</strong></h3>
 			<p class="number-crew-genre"><%= @movie.overview%></p>
 		</div>
 
 		<div class="infos">
-			<h3><strong>DIRECTOR:</strong></h3> 
+			<h3><strong>DIRECTOR:</strong></h3>
 			<p class="number-crew-genre">Brian Levant</p>
 		</div>
 
@@ -60,7 +60,7 @@
 		</div>
 
 		<div class="infos">
-		<h3><strong>GENRES:</strong></h3> 
+		<h3><strong>GENRES:</strong></h3>
 			<div class="genres">
 				<p class="number-crew-genre">Family</p>
 				<p class="number-crew-genre">Comedy</p>
@@ -97,3 +97,5 @@
 		</div>
 	</div>
 </div>
+
+<%= render "mapbox" %>
