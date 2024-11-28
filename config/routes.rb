@@ -13,12 +13,13 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :movies do
     resources :suggestions, only: [:update]
-    resources :preferences
+
     member do
       get "search"
     end
   end
 
+  get "/preferences", to: "dashboards#preferences"
 end
 
   # routes des profiles à déterminer
