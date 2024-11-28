@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
-  
-def show
-
-end
+  before_action :authenticate_user!, only: [:index]
+  def index
+    @user = current_user
+  end
 
 end
