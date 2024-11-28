@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    if "j'ai un param sarch"
+      @movies = Movie.all
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
