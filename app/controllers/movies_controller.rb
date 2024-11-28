@@ -11,5 +11,6 @@ class MoviesController < ApplicationController
         lat: current_user.latitude,
         lng: current_user.longitude
       }
+    @liked = false
   end
 end
