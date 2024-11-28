@@ -9,7 +9,7 @@
 #   end
 
 
-
+User.destroy_all
 Movie.destroy_all
 
 Movie.create!(
@@ -88,6 +88,6 @@ tagline: "What's this?")
 
 #
 #
-alex = User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000")
+User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000")
 
 # useful pour les vidéos https://www.youtube.com/watch?v=lVtetOjX_vk
