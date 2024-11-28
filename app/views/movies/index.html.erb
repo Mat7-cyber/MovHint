@@ -1,0 +1,39 @@
+<div class="barsearch">
+  <div class="search-bar">
+    <div>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search by title...">
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+
+  <h1 style="text-align: center; padding: 16px">Results for XXX</h1>
+<div class="container-show">
+  <ul class="remove-bullet">
+    <% @movies.each do |movie| %>
+      <li><hr>
+        <div class="responsive-poster-pref">
+
+          <div class="flexsearched">
+            <div>
+              <i class="fa-solid fa-heart likeplacement"></i>
+              <%= image_tag movie.poster_path, alt: "#{movie.original_title} Poster", class: "card-movieposter-pref postersearched" %>
+              <div class="voteplacementsearch"><p> <%= movie.vote_average %> <i class="fa-solid fa-star" style="color: #DAAD00"></i></p><div class="rating">
+                    <span>⭐ 8</span> <%# rating du film %>
+                </div></div>
+            </div>
+            <div class="descriptionsearch">
+              <h4 style="color: #DAAD00"><%= movie.original_title %></h4>
+              <p><i class="fa-regular fa-calendar-check"style="margin-right: 8px;"></i><%= movie.release_date %></p>
+              <p><i class="fa-regular fa-clock"style="margin-right: 8px;"></i><%= movie.runtime %></p>
+              <p><i class="fa-solid fa-film"style="margin-right: 8px;"></i><%= movie.genres %></p>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul></div>
+</div>
