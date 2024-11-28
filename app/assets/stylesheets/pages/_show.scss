@@ -153,8 +153,13 @@ button {
 	padding-top: 10px;
 }
 
+.movie-map {
+	width: 83vw;
+	height: 100%;
+}
+
 .map {
-	width: 215px;
-	height: 240px;
-	background-size: cover;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 7px;
 }
