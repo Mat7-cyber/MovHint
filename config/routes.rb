@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :dashboards, only: [:index]
+  resource :dashboard, only: [:show], controller: "dashboards" do
+    member do
+      get "preferences"
+    end
+  end
+
+
+
 
   # Defines the root path route ("/")
   # root "posts#index"
@@ -19,7 +26,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/preferences", to: "dashboards#preferences"
 end
 
   # routes des profiles à déterminer
