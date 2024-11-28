@@ -6,7 +6,7 @@
 
 
 .container {
-  width: 428px ;
+  width: 100% ;
   padding: 20px;
   background-color: var(--background);
   color: var(--accessible-text);
@@ -17,18 +17,17 @@
 text-align: center;
 color: var(--solid_colors) ;
 margin: 20px;
+font-size: 1.8rem;
+font-weight: bold;
+letter-spacing: 1px;
 }
 
 .card-profile{
   text-align: center;
-  margin: 60px;
+  margin: 20px;
   padding: 20px;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid; ;
   background-color: var(--background);
-  border-color: var(--border_and_separators);
-
+  display: flex;
 }
 
 .avatar-profile{
@@ -41,9 +40,10 @@ margin: 20px;
 }
 
 .profile-infos h2 {
-margin: 10px;
-padding: 5px;
-color: var(--solid_colors);
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--solid_colors);
 }
 
 .profile-infos p {
@@ -53,8 +53,8 @@ color: var(--solid_colors);
   }
 
 .account-profile{
-  margin: 60px;
-  padding: 20px;
+  margin: 20px;
+  padding: 10px;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
@@ -64,7 +64,10 @@ color: var(--solid_colors);
 
 .account-profile h2{
   color: var(--solid_colors);
-text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 .account-profile a{
@@ -74,20 +77,22 @@ text-align: center;
   }
 
 .movhint-liked-profile{
-  margin: 60px;
-  padding: 20px;
+  margin: 20px;
+  padding: 10px;
   border-radius: 10px;
   border-width: 2px;
-  border-style: solid; ;
+  border-style: solid;
   background-color: var(--background);
   border-color: var(--border_and_separators);
-
 }
 
 
 .movhint-liked-profile h2{
   color: var(--solid_colors);
-text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 .movhint-liked-profile a{
@@ -98,22 +103,25 @@ text-align: center;
 
 
 .more-profile{
-  margin: 60px;
-  padding: 20px;
+  margin: 20px;
+  padding: 10px;
   border-radius: 10px;
   border-width: 2px;
-  border-style: solid; ;
+  border-style: solid;
   background-color: var(--background);
   border-color: var(--border_and_separators);
 }
 
 .more-profile h2{
   color: var(--solid_colors);
-text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 .more-profile a{
-  display: ruby;
+  display: flex;
   text-decoration: none;
   color: var(--accessible-text);
   }
@@ -133,7 +141,7 @@ text-align: center;
 }
 
 .icon-circle-liked {
-  width: 35px;
+  width: 25px;
   height: 25px;
   display: flex;
   justify-content: center;
@@ -146,20 +154,18 @@ text-align: center;
 
 .icon-circle-more{
   width: 25px;
-  height: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--solid_colors);
-  color: var(--background);
-  border-radius: 50%;
-  margin: 10px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--solid_colors);
+    color: var(--background);
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 
-.spacing{
-  border-bottom: 2px solid var(--border_and_separators);
-}
+
 
 .btn-log{
   display: flex;

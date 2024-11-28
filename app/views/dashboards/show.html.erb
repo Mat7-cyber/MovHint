@@ -14,42 +14,49 @@
 
 <div class="account-profile">
   <h2><%= "Account" %></h2>
+  <hr>
   <%= link_to dashboard_path do %>
     <span class="icon-circle-account"><i class="fa-solid fa-user"></i></span>
-    <p>member</p>
+    <p>Member</p>
   <% end %>
 </div>
 
 
 <div class="movhint-liked-profile" >
-<h2>MovHint Liked</h2>
+<h2>MovHint</h2>
+<hr>
 <%= link_to preferences_dashboard_path do%>
  <span class="icon-circle-liked"><i class="fa-solid fa-user"></i></span>
- <p>Liked movhint and Actors</p>
+ <p>Movies / Actors</p>
  <% end %>
 </div>
 
 <div class="more-profile" >
-<h2><%= "More" %></h2>
-<div class="spacing">
-<a class="btn-profile" href="#">
-  <span class="icon-circle-more"><i class="fa-solid fa-shield"></i></span>
-  <%="Legal and policies"%></a>
-</div>
-<div class="spacing">
-<a class="btn-profile" href="#">
+<h2> More </h2>
+<hr>
+<%= link_to preferences_dashboard_path do%>
+ <span class="icon-circle-more"><i class="fa-solid fa-shield"></i></span>
+ <p>Legal and policies</p>
+ <% end %>
+ <hr>
+<%= link_to preferences_dashboard_path do%>
   <span class="icon-circle-more"><i class="fa-solid fa-question"></i></span>
-  <%="Help & Feedback"%> </a>
-</div>
-<div class="spacing">
-<a class="btn-profile" href="#">
+ <p>Help & Feedback</p>
+ <% end %>
+<hr>
+<%= link_to preferences_dashboard_path do%>
   <span class="icon-circle-more"><i class="fa-solid fa-info"></i></span>
-  <%="About Us"%> </a>
-</div>
-</div>
+ <p>About Us</p>
+ <% end %>
 
+
+
+</div>
 <a href="#" class="btn-log"> <%="Log out"%> </a>
-
-
-
 </div>
+
+
+
+
+
+
