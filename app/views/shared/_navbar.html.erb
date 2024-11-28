@@ -1,0 +1,15 @@
+
+  <div class="navbar"  >
+      <div class="navbar-btn-home ">
+        <%= link_to root_path, data: { turbo_frame: :home } do %>
+        <i class="fa-solid fa-house"></i>
+        <% end %>
+      </div>
+
+
+      <div class="navbar-btn-profile ">
+        <%= link_to dashboards_path, data: {turbo_frame: :index} do %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
+      </div>
+  </div>
