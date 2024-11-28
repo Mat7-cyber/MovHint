@@ -1,7 +1,16 @@
 class DashboardsController < ApplicationController
-  
-def show
+  before_action :authenticate_user!, only: [:index]
 
-end
+  def show
+  end
+
+  def preferences
+    @movies = Movie.all
+  end
+
+  def index
+    @user = current_user
+  end
+
 
 end
