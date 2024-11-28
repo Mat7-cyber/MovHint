@@ -1,7 +1,12 @@
 class DashboardsController < ApplicationController
-  
-def show
 
-end
+  def show
+
+  end
+
+  def preferences
+    @movies = Movie.all
+  end
+
 
 end
