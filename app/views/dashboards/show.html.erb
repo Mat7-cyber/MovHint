@@ -1,0 +1,55 @@
+<div class="container">
+<h1 class="title-profile" ><%= "Profile" %></h1>
+
+<%# faire un avatar cloudinary %>
+<%# faire les chemins des liens %>
+
+<div class="card-profile" >
+<img class="avatar-profile" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+<div class="profile-infos">
+<h2 ><%=current_user.first_name%></h2>
+<p><%=current_user.email%></p>
+</div>
+</div>
+
+<div class="account-profile">
+  <h2><%= "Account" %></h2>
+  <%= link_to dashboard_path do %>
+    <span class="icon-circle-account"><i class="fa-solid fa-user"></i></span>
+    <p>member</p>
+  <% end %>
+</div>
+
+
+<div class="movhint-liked-profile" >
+<h2>MovHint Liked</h2>
+<%= link_to preferences_dashboard_path do%>
+ <span class="icon-circle-liked"><i class="fa-solid fa-user"></i></span>
+ <p>Liked movhint and Actors</p>
+ <% end %>
+</div>
+
+<div class="more-profile" >
+<h2><%= "More" %></h2>
+<div class="spacing">
+<a class="btn-profile" href="#">
+  <span class="icon-circle-more"><i class="fa-solid fa-shield"></i></span>
+  <%="Legal and policies"%></a>
+</div>
+<div class="spacing">
+<a class="btn-profile" href="#">
+  <span class="icon-circle-more"><i class="fa-solid fa-question"></i></span>
+  <%="Help & Feedback"%> </a>
+</div>
+<div class="spacing">
+<a class="btn-profile" href="#">
+  <span class="icon-circle-more"><i class="fa-solid fa-info"></i></span>
+  <%="About Us"%> </a>
+</div>
+</div>
+
+<a href="#" class="btn-log"> <%="Log out"%> </a>
+
+
+
+</div>
