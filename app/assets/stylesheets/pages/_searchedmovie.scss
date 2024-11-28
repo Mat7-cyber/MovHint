@@ -1,0 +1,26 @@
+.flexsearched {
+  display: flex;
+}
+.postersearched {
+  width: 120px;
+  height: 160px;
+  padding: 16px;
+  padding-right: 16px;
+}
+
+.descriptionsearch {
+  padding: 8px;
+
+}
+
+.likeplacement {
+  position: absolute;
+  top: 18px;
+  left: 81px;
+  color: red;
+}
+.voteplacementsearch {
+  position: absolute;
+  top: 120px;
+  right: 285px;
+}
