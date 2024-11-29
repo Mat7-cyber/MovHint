@@ -40,47 +40,6 @@
   display: block !important;
 }
 
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  padding-inline: 12px;
-  width: 100%;
-  justify-content: space-between;
-  height: 100%;
-  overflow: hidden;
-}
-.search-bar input {
-  background: none;
-  border: none;
-  outline: none;
-  color: #AAAAAA
-;
-  font-size: 13px;
-  padding-left: 10px;
-}
-.search-bar input::placeholder {
-  color: #AAAAAA
-;
-}
-.search-bar img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
-.search-bar .filter-icon {
-  width: 20px;
-  height: 20px;
-}
-.barsearch {
-  border-radius: 25px;
-  border: 1px solid #66541F;
-  background-color: #2C2C2C;
-  color: #FAE9B8;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-  height: 35px;
+.hidden-heart {
+  display: none;
 }
