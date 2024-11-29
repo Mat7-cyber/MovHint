@@ -7,7 +7,7 @@ export default class extends Controller {
   }
 
   enable() {
-    const notLiked = 'Add to my favorites: <i class="fa-solid fa-plus"></i>'
+    const notLiked = '<i class="fa-solid fa-plus"></i>'
     const liked = '<i class="fa-solid fa-thumbs-up"></i>'
     
     if( this.element.classList.contains("button-liked")) {

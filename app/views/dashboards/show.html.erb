@@ -1,5 +1,4 @@
 <div class="container">
-<h1 class="title-profile" ><%= "Profile" %></h1>
 
 <%# faire un avatar cloudinary %>
 <%# faire les chemins des liens %>
@@ -52,7 +51,7 @@
 
 
 </div>
-<a href="#" class="btn-log"> <%="Log out"%> </a>
+  <%= link_to "Log out", destroy_user_session_path, turbo: false, data: { turbo_method: :delete }, class:"btn-log" %>
 </div>
 
 
