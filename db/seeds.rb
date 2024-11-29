@@ -8,7 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
+User.all.each do |user|
+  user.photo.purge
+end
 User.destroy_all
 Movie.destroy_all
 
@@ -87,7 +89,7 @@ runtime: 76,
 tagline: "What's this?")
 
 #
-#
-User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000")
+upload = Cloudinary::Uploader.upload('https://cdn.futura-sciences.com/cdn-cgi/image/width=1920,quality=50,format=auto/sources/images/AI-creation.jpg')
+User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000").photo.attach(io: URI.open(upload['secure_url']), filename: 'avatar.png')
 
 # useful pour les vidéos https://www.youtube.com/watch?v=lVtetOjX_vk

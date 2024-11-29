@@ -1,8 +1,9 @@
 
-    <div class="header">    
+    <div class="header">
         <%= link_to dashboard_path do %>
-            <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
-        <% end %> 
+            <%= cl_image_tag(current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered") %>
+            <%# <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
+        <% end %>
         <div class="greeting">
             <h1>Hello Mathieu</h1>
             <span>Let's watch your favorite movie</span>

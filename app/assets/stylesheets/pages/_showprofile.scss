@@ -12,6 +12,19 @@
   color: var(--accessible-text);
 }
 
+.avatar-container {
+  position: relative;
+  #pen {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    padding: 5px;
+    background-color: var(--solid_colors);
+    color: var(--background);
+    border-radius: 50%;
+  }
+  }
+
 
 .title-profile{
 text-align: center;
