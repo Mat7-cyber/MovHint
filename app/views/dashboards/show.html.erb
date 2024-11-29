@@ -2,12 +2,17 @@
 
 <%# faire un avatar cloudinary %>
 <%# faire les chemins des liens %>
-
 <div class="card-profile" >
-<div>
-  <i class="fa-solid fa-pen">
-<img class="avatar-profile" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" /></i>
-</div>
+  <div class="avatar-container" data-controller="avatar" data-action="click->avatar#changeavatar" >
+      <i id="pen" class="fa-solid fa-pen btn"  ></i>
+      <%= cl_image_tag current_user.photo.key, crop: :fill, class:"avatar-profile" %>
+      <div class="d-none" >
+        <%= simple_form_for current_user, data: { avatar_target: "form" } do |f| %>
+          <%= f.input :photo, as: :file, input_html: { data: { avatar_target: "input", action:"change->avatar#upload" } } %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+  </div>
 <div class="profile-infos">
 <h2 ><%=current_user.first_name%></h2>
 <p><%=current_user.email%></p>
@@ -56,9 +61,3 @@
 </div>
   <%= link_to "Log out", destroy_user_session_path, turbo: false, data: { turbo_method: :delete }, class:"btn-log" %>
 </div>
-
-
-
-
-
-
