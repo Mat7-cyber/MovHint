@@ -34,6 +34,7 @@
       <a href="#" class="see-all">See All</a>
       </div>
        <div class="movies">
+        <% if current_user %>
         <% @most_popular["results"].each do |result| %>
           <div class="movie">
             <div class="rating">
@@ -84,6 +85,8 @@
             <p><%= @genres[result["genre_ids"].first] %></p>
           </div>
         <% end %>
+        <% end %>
+
       </div>
     </div>
 
