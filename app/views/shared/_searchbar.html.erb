@@ -1,15 +1,15 @@
 
-  <div class="barsearch">
-        <div class="search-bar">
-          <div>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search by title...">
-          </div>
 
-
-          <div class="search-bar-filter" data-bs-toggle="modal" data-bs-target="#genresModal">
+<div class="barsearch">
+  <div class="search-bar">
+    <%= form_with url: movies_path, method: :get, local: true do %>
+      <div>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <%= text_field_tag :query, params[:query], placeholder: "Search by title..." %>
+      </div>
+    <% end %>
+    <div class="search-bar-filter" data-bs-toggle="modal" data-bs-target="#genresModal">
             <i class="fa-solid fa-filter"></i><i class="fa-solid fa-sort-down"></i>
-          </div>
-
-        </div>
+    </div>
   </div>
+</div>

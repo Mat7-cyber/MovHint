@@ -1,8 +1,7 @@
-
-    <div class="header">    
+    <div class="header">
         <%= link_to dashboard_path do %>
             <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
-        <% end %> 
+        <% end %>
         <div class="greeting">
             <h1>Hello Mathieu</h1>
             <span>Let's watch your favorite movie</span>
@@ -27,32 +26,20 @@
     <hr>
 
     <div class="mostpopular">
-        <div class="header">
-            <h2>Most popular</h2>
-            <a href="#" class="see-all">See All</a>
-        </div>
-        <div class="movies">
-            <div class="movie">
-                <div class="rating">
-                    <span>⭐ 8</span> <%# rating du film %>
-                </div>
-                <%# affiche du film %>
-                <p>Action</p> <%# genre du film %>
+      <div class="header">
+        <h2>Most Popular</h2>
+      <a href="#" class="see-all">See All</a>
+      </div>
+       <div class="movies">
+        <% @most_popular["results"].each do |result| %>
+          <div class="movie">
+            <div class="rating">
+              <span>⭐ <%= result["vote_average"] %></span>
             </div>
-            <div class="movie">
-                <div class="rating">
-                    <span>⭐ 8</span>
-                </div>
-                <%# affiche du film %>
-                <p>Fantasy</p>
-            </div>
-            <div class="movie">
-                <div class="rating">
-                    <span>⭐ 8</span>
-                </div>
-                <%# affiche du film %>
-                <p>Drama</p>
-            </div>
+            <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
+            <p><%= @genres[result["genre_ids"].first] %></p>
+          </div>
+        <% end %>
       </div>
     </div>
 
@@ -64,29 +51,18 @@
             <a href="#" class="see-all">See All</a>
         </div>
         <div class="movies">
-            <div class="movie">
-                <div class="rating">
-                    <span>⭐ 8</span> <%# rating du film %>
-                </div>
-                <%# affiche du film %>
-                <p>Action</p> <%# genre du film %>
+        <% @top_rating["results"].each do |result| %>
+          <div class="movie">
+            <div class="rating">
+              <span>⭐ <%= result["vote_average"] %></span>
             </div>
-            <div class="movie">
-                <div class="rating">
-                    <span>⭐ 8</span>
-                </div>
-                <%# affiche du film %>
-                <p>Fantasy</p>
-            </div>
-            <div class="movie">
-                <div class="rating">
-                    <span>⭐ 8</span>
-                </div>
-                <%# affiche du film %>
-                <p>Drama</p>
-            </div>
+            <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
+            <p><%= @genres[result["genre_ids"].first] %></p>
+          </div>
+        <% end %>
       </div>
     </div>
+
 
     <hr>
 
@@ -96,29 +72,18 @@
             <a href="#" class="see-all">See All</a>
         </div>
         <div class="movies">
-            <div class="movie">
-                <div class="release">
-                    <span>00/00/2025</span> <%# date de sortie du film %>
-                </div>
-                <%# affiche du film %>
-                <p>Action</p> <%# genre du film %>
-            </div>
-            <div class="movie">
-              <div class="release">
-                    <span>00/00/2025</span> <%# date de sortie du film %>
+        <% @upcoming["results"].each do |result| %>
+          <div class="movie">
+             <div class="release">
+                    <span><%= result["release_date"] %></span>
               </div>
-                <%# affiche du film %>
-                <p>Fantasy</p>
-            </div>
-            <div class="movie">
-              <div class="release">
-                    <span>00/00/2025</span> <%# date de sortie du film %>
-              </div>
-                <%# affiche du film %>
-                <p>Drama</p>
-            </div>
+            <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
+            <p><%= @genres[result["genre_ids"].first] %></p>
+          </div>
+        <% end %>
       </div>
     </div>
+
 
 
 <%# ------------- \/ Keep out of contaitner \/ --------------------------%>
