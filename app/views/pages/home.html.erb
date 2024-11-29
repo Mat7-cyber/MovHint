@@ -1,13 +1,17 @@
 
-    <div class="header">
+    <div class="header">    
+        <%= link_to dashboard_path do %>
             <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm">
+        <% end %> 
         <div class="greeting">
             <h1>Hello Mathieu</h1>
             <span>Let's watch your favorite movie</span>
         </div>
         <div class="favorite">
+        <%= link_to preferences_dashboard_path do %>
             <i class="fa-solid fa-heart" style="color: #ec1515;"></i>
-        </div>
+        <% end %>
+         </div>
     </div>
 
     <%= render "shared/searchbar" %>

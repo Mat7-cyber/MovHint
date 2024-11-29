@@ -28,6 +28,8 @@ letter-spacing: 1px;
   padding: 20px;
   background-color: var(--background);
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .avatar-profile{

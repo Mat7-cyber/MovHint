@@ -10,7 +10,7 @@
 		<button class="button-movie-favorite <%= "button-liked" if @liked %>" 
 		data-controller="event-listener"
 		data-action="click->event-listener#enable">
-		Add to my favorites: <i class="fa-solid fa-plus"></i>
+		<i class="fa-solid fa-plus"></i>
 		</button>
 	</div>
 <% end %>
@@ -75,13 +75,13 @@
 	</div>
 
 	<div class="movie-availability">
-		<h3 class="stream-buy">Watch your movie at home!</h3>
+		<h3 class="stream-buy">Be moved !</h3>
 		<a href="https://www.disneyplus.com/" target="_blank"><img src="<%= image_path('https://image.tmdb.org/t/p/original/97yvRBw1GzX7fXprcF80er19ot.jpg') %>" alt="Logo Disney+", class="stream_icon"/></a>
 		<a href="https://tv.apple.com" target="_blank"><img src="<%= image_path('https://image.tmdb.org/t/p/original/9ghgSC0MA082EL6HLCW3GalykFD.jpg') %>" alt="Logo Apple TV", class="stream_icon"/></a>
 	</div>
 
 	<div class="movie-map">
-		<h3 class="stream-buy">Watch your movie in theaters or buy it!</h3>
+		<h3 class="stream-buy">Move !</h3>
 		<%= render "mapbox" %>
 	</div>
 
