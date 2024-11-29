@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    if "j'ai un param sarch"
+      @movies = Movie.all
+    else
+      @movies = Movie.all
+    end
   end
 
   def show
@@ -11,5 +15,6 @@ class MoviesController < ApplicationController
         lat: current_user.latitude,
         lng: current_user.longitude
       }
+    @liked = false
   end
 end

@@ -5,13 +5,15 @@
 	</button>
 </div>
 
-<div class="button-center">
-	<button class="button-movie-favorite"
-	data-controller="event-listener"
-	data-action="click->event-listener#enable">
-	Add to my favorites: <i class="fa-solid fa-plus"></i>
-	</button>
-</div>
+<% if current_user %>
+	<div class="button-center">
+		<button class="button-movie-favorite <%= "button-liked" if @liked %>" 
+		data-controller="event-listener"
+		data-action="click->event-listener#enable">
+		<i class="fa-solid fa-plus"></i>
+		</button>
+	</div>
+<% end %>
 
 <div class="container-show">
 
@@ -35,7 +37,7 @@
 
 		<div class="infos">
 			<h3><strong>RATING:</strong></h3>
-			<div class="rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
+			<div class="infos-rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
 				<p class="number-crew-genre"
 				data-stars-target="rating-number"
 				data-action="click>rating-number#display_stars"><%= @movie.vote_average.round(2)%></p>
@@ -73,14 +75,14 @@
 	</div>
 
 	<div class="movie-availability">
-		<h3 class="stream-buy">Watch your movie at home!</h3>
+		<h3 class="stream-buy">Be moved !</h3>
 		<a href="https://www.disneyplus.com/" target="_blank"><img src="<%= image_path('https://image.tmdb.org/t/p/original/97yvRBw1GzX7fXprcF80er19ot.jpg') %>" alt="Logo Disney+", class="stream_icon"/></a>
 		<a href="https://tv.apple.com" target="_blank"><img src="<%= image_path('https://image.tmdb.org/t/p/original/9ghgSC0MA082EL6HLCW3GalykFD.jpg') %>" alt="Logo Apple TV", class="stream_icon"/></a>
 	</div>
 
 	<div class="movie-map">
-		<h3 class="stream-buy">Watch your movie in theaters or buy it!</h3>
-		<img src="<%= image_path('https://cdn.shopify.com/s/files/1/2198/0277/files/los-angeles-california.jpg?13736522005723903826') %>" alt="Map L.A.", class="map"/>
+		<h3 class="stream-buy">Move !</h3>
+		<%= render "mapbox" %>
 	</div>
 
 </div>
@@ -99,5 +101,3 @@
 		</div>
 	</div>
 </div>
-
-<%= render "mapbox" %>
