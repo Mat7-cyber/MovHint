@@ -9,10 +9,10 @@
 
 <div class="container">
 
-  <h1 style="text-align: center">Your favorite Personnalities</h1>
+  <h1><strong>Your favorite Personnalities</strong></h1>
 
 
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="padding: 30px">
     <div class="carousel-inner">
 
       <div class="carousel-item active">
@@ -84,14 +84,14 @@
     </button>
   </div>
 
-  <h1 style="text-align: center">Your favourite movies</h1>
+  <h1 ><strong>Your favourite movies</strong></h1>
   <ul class="remove-bullet">
     <% @movies.each do |movie| %>
       <li><hr>
         <div class="responsive-poster-pref">
           <div class="flexsearched">
-            <div>
-              <i class="fa-solid fa-heart likeplacement"></i>
+            <div data-controller="like">
+              <i data-target="like.heartpref" data-action="click->like#likeintodislike" class="fa-solid fa-heart likeplacement"></i>
               <%= image_tag movie.poster_path, alt: "#{movie.original_title} Poster", class: "card-movieposter-pref postersearched" %>
               <div class="voteplacementpref"><p> <%= movie.vote_average.round(2) %> <i class="fa-solid fa-star"></i></p></div>
             </div>
@@ -109,3 +109,4 @@
     <% end %>
   </ul>
 </div>
+<%= console %>
