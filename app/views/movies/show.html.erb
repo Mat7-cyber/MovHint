@@ -22,9 +22,9 @@
 		<h1 class="movie-title"><strong><%= @movie.original_title%></strong></h1>
 
 		<div class="movie-tagline">
-				<h4
+				<h4 data-display-text-text-value="<%= @movie.tagline%>"
 				data-display-text-target="text"
-				data-controller="display-text"><em><i class="fa-solid fa-quote-left"></i> <%= @movie.tagline%> <i class="fa-solid fa-quote-left fa-mirror"></i></em></h4>
+				data-controller="display-text"></h4>
 		</div>
 
 		<div class="infos">

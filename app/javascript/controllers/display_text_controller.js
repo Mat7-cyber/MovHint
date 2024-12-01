@@ -4,6 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
 static targets = ["text"]
+static values = {
+  text: String
+}
 
   connect() { 
     this.reveal()
@@ -17,7 +20,7 @@ static targets = ["text"]
     }
   },{
     threshold: 1,
-    rootMargin: "0px 0px -50px 0px"
+    rootMargin: "0px 0px -10% 0px"
   })
   window.onload = () => {
     observer.observe(this.textTarget)
@@ -25,6 +28,7 @@ static targets = ["text"]
   }
 
   reveal() {
+    this.textTarget.innerHTML= `<em><i class="fa-solid fa-quote-left"></i> ${this.textValue} <i class="fa-solid fa-quote-left fa-mirror"></i></em>`
     this.textTarget.classList.add("tagline")
   }
 }
