@@ -48,6 +48,7 @@ p {
 }
 
 .tagline {
+	display: block;
 	color: #DAAD00;
 	padding-bottom: 5px;
 	font-size: 18px;
@@ -56,15 +57,10 @@ p {
 	animation-name: text-reveal;
 	animation-timing-function: ease-in-out;
 	animation-duration: 2.5s;
-	animation-iteration-count: infinite;
 
 	@keyframes text-reveal { 
 		0% { 
 			width: 0%;  
-		} 
-	
-		50% { 
-			width: 40%;  
 		} 
 	
 		100% { 
@@ -138,6 +134,7 @@ button {
 
 .infos {
 	margin-top: 5px;
+	margin-bottom: 7px;
 }
 
 .number-crew-genre {
@@ -147,16 +144,18 @@ button {
 	color: #FAE9B8;
 	display: inline-block;
 	padding: 10px;
+	margin-right: 10px;
+	margin-bottom: 0;
 }
 
 .infos-rating {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 }
 
 .fa-star {
 	color: #FAE9B8;
+	font-size: 20px;
 }
 
 .fa-star.active {
