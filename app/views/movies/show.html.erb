@@ -22,7 +22,9 @@
 		<h1 class="movie-title"><strong><%= @movie.original_title%></strong></h1>
 
 		<div class="movie-tagline">
-				<h4 class="tagline"><em><i class="fa-solid fa-quote-left"></i> <%= @movie.tagline%> <i class="fa-solid fa-quote-left fa-mirror"></i></em></h4>
+				<h4
+				data-display-text-target="text"
+				data-controller="display-text"><em><i class="fa-solid fa-quote-left"></i> <%= @movie.tagline%> <i class="fa-solid fa-quote-left fa-mirror"></i></em></h4>
 		</div>
 
 		<div class="infos">
@@ -39,8 +41,8 @@
 			<h3><strong>RATING:</strong></h3>
 			<div class="infos-rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
 				<p class="number-crew-genre"
-				data-stars-target="rating-number"
-				data-action="click>rating-number#display_stars"><%= @movie.vote_average.round(2)%></p>
+				data-stars-target="ratingNumber"
+				><%= @movie.vote_average.round(2)%></p>
 			</div>
 		</div>
 
@@ -101,4 +103,3 @@
 		</div>
 	</div>
 </div>
-
