@@ -26,13 +26,11 @@ class PagesController < ApplicationController
     return response
   end
 
-
-
-  end
-
   private
-
+  
   def set_tmdb
     @token_key = ENV["TMDB_TOKEN"]
     @url = "https://api.themoviedb.org/3"
   end
+  
+end

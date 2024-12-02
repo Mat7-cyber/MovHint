@@ -20,9 +20,9 @@ export default class extends Controller {
       threshold: 1,
       rootMargin: "0px 0px -50px 0px"
     })
-    window.onload = () => {
+    document.addEventListener("DOMContentLoaded",
       observer.observe(this.ratingNumberTarget)
-    }
+    )
   }
 
   display_stars() {
