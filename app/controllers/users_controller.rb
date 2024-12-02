@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def destroy
+    sign_out current_user
+    redirect_to dashboard_path
+  end
+
   private
 
   def user_params

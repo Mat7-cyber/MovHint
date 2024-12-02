@@ -98,3 +98,40 @@ upload = Cloudinary::Uploader.upload('https://cdn.futura-sciences.com/cdn-cgi/im
 User.create(email: "alex@mail.com", first_name:"Alex", last_name: " Truc", password: "password", address: "2 avenue des saules, Lille 59000").photo.attach(io: URI.open(upload['secure_url']), filename: 'avatar.png')
 
 # useful pour les vidéos https://www.youtube.com/watch?v=lVtetOjX_vk
+
+Pickup.destroy_all
+
+Pickup.create!(
+  name: "UGC Ciné Cité Lille",
+  address: "40 Rue de Béthune, 59800 Lille",
+  latitude: 50.633949279785156,
+  longitude:3.0634238719940186
+)
+
+Pickup.create!(
+  name: "UGC Ciné Cité Villeneuve d'Ascq",
+  address: "21 Av. de l'Avenir, 59650 Villeneuve-d'Ascq",
+  latitude: 50.6159019,
+  longitude:3.1255409
+)
+
+Pickup.create!(
+  name: "Kinepolis",
+  address: "1 Rue du Château d'Isenghien, 59160 Lille",
+  latitude: 50.6514817,
+  longitude:2.9810566
+)
+
+Pickup.create!(
+  name: "FNAC Lille",
+  address: "20 Rue Saint-Nicolas, 59000 Lille",
+  latitude: 50.6360159,
+  longitude:3.0647206
+)
+
+Pickup.create!(
+  name: "FNAC Lille - Gare Lille-Flandres",
+  address: "Gare SNCF Lille Flandres, Pl. des Buisses, 59000 Lille",
+  latitude: 50.633,
+  longitude:3.0586
+)
