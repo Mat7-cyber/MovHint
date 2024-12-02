@@ -6,7 +6,13 @@ class DashboardsController < ApplicationController
   end
 
   def preferences
-    @movies = Movie.all
+    @movies = current_user.prefered_movies
+
+
+      preferences = Preference.all
+
+      @original_titles = preferences.map { |preference| preference.movie.original_title }
+ 
   end
 
   
