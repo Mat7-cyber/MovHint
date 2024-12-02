@@ -1,27 +1,75 @@
-.flexsearched {
+.moviesresult {
   display: flex;
-}
-.postersearched {
-  width: 120px;
-  height: 160px;
-  padding: 16px;
-  padding-right: 16px;
-  border-radius: 20px;
+  gap: 20px;
+  overflow: scroll;
+  flex-direction: column;
 }
 
-.descriptionsearch {
-  padding: 8px;
-
+.movieresult {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #2b2b2b;
+  padding: 5px;
+  border-radius: 10px;
+  min-width: 150px;
+  text-align: center;
+  height: 180px;
+  position: relative;
+  object-fit: contain;
+  margin: 20px;
+    img {
+      min-width: initial;
+      height: 100%;
+      object-fit: cover;
+    }
 }
 
-.likeplacement {
+.ratingresult {
+  display: flex;
+  color: #FAE9B8;
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 9px;
+  border: 1px solid #66541F;
   position: absolute;
-  top: 18px;
-  left: 81px;
-  color: red;
+  top: 1px;
+  left: 1px;
+  background-color: #392B00;
+
 }
-.voteplacementsearch {
-  position: absolute;
-  top: 120px;
-  right: 285px;
+
+
+.movie-details {
+  display: flex;
+  padding-left: 8px;
+}
+
+.movie-details p {
+  margin: 5px 0;
+}
+
+.movie-details p:first-of-type {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.movie-details .movie-meta {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.9em;
+  color: #FAE9B8;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+
+.movie-details .movie-meta span {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
 }

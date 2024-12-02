@@ -43,7 +43,7 @@
     <div class="mostpopular">
       <div class="header">
         <h2>Most Popular</h2>
-      <a href="#" class="see-all">See All</a>
+      <%= link_to "See All", movies_path(most_popular: true), class: "see-all" %>
       </div>
        <div class="movies">
         <% @most_popular["results"].each do |result| %>
@@ -65,7 +65,7 @@
     <div class="toprating">
         <div class="header">
             <h2>Top rating</h2>
-            <a href="#" class="see-all">See All</a>
+          <%= link_to "See All", movies_path(top_rated: true), class: "see-all" %>
         </div>
         <div class="movies">
         <% @top_rating["results"].each do |result| %>
@@ -86,7 +86,7 @@
     <div class="upcoming">
         <div class="header">
             <h2>Upcoming</h2><h6>and recently released</h6>
-            <a href="#" class="see-all">See All</a>
+          <%= link_to "See All", movies_path(upcoming: true), class: "see-all" %>
         </div>
         <div class="movies">
         <% @upcoming["results"].each do |result| %>

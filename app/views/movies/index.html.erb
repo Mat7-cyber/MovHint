@@ -1,28 +1,26 @@
-<div class="barsearch">
-  <div class="search-bar">
-    <div>
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" placeholder="Search by title...">
-    </div>
-  </div>
-</div>
+<%= render "shared/searchbar" %>
 
 
-<% if @results.present? %>
-  <div class="movies">
-    <% @results.each do |result| %>
-      <div class="movie">
-        <div class="rating">
-          <span>⭐ <%= result["vote_average"] %></span>
-        </div>
-        <div class="poster">
-          <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
-        </div>
-        <p><%= result["title"] %></p>
+
+<div class="moviesresult">
+  <% @movies["results"].each do |movie| %>
+    <div class="movieresult">
+      <div class="ratingresult">
+        <span>⭐ <%= movie["vote_average"] %></span>
       </div>
-    <% end %>
-  </div>
-<% else %>
-  <p>No results found</p>
-<% end %>
-
+      <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
+      <div class="movie-details">
+        <div class="movie-meta">
+          <div class="titleresult"><p><%= movie["title"] %><p></div>
+          <h6>Release date :</h6>
+          <span>📅<%= movie["release_date"] %></span>
+          <h6>Overview</h6>
+          <span>🕒<%= truncate(movie["overview"], length: 100, separator: ' ', omission: '...')%></span>
+          <h6>Genre</h6>
+          <span>📚<%= @genres[movie["genre_ids"].first] %></span>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+</div>
