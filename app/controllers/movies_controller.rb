@@ -2,8 +2,17 @@ class MoviesController < ApplicationController
   before_action :set_tmdb, only: [:index]
 
   def index
-    if "j'ai un param sarch"
-      @movies = Movie.all
+    @genres = Movie::MOVIE_GENRES
+    if params[:query]
+      @movies = search(params[:query])
+    elsif params[:genre_id]
+      @movies = search_category(params[:genres_id])
+    elsif params["most_popular"] == "true"
+      @movies = section("popular")
+    elsif params["top_rated"] == "true"
+      @movies = section("top_rated")
+    elsif params["upcoming"] == "true"
+      @movies = section("upcoming")
     else
       @movies = Movie.all
     end
@@ -19,29 +28,55 @@ class MoviesController < ApplicationController
     @liked = false
   end
 
-  def search
+  def search(query, options = {})
     query = params[:query]
-    if query.present?
-      url = "https://api.themoviedb.org/3/search/movie?query=#{query}&include_adult=false&language=en-US&page=1"
-      url = URI(url)
-      http = Net::HTTP.new(url.host, url.port)
-      http.use_ssl = true
-      request = Net::HTTP::Get.new(url)
-      request["accept"] = 'application/json'
-      request["Authorization"] = "Bearer #{@token_key}"
+    url = "https://api.themoviedb.org/3/search/movie?query=#{query}&include_adult=false&language=en-US&page=1"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    results = JSON.parse(response.read_body)
+  end
 
-      response = http.request(request)
-      @results = JSON.parse(response.read_body)
-      @genres = Movie::MOVIE_GENRES
-    else
-      @results = []
-    end
+  def search_category(query)
+    query = params[:genre_id]
+    url = "https://api.themoviedb.org/3/discover/movie?&with_genres=#{query}&include_adult=false&language=en-US&page=1"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    results = JSON.parse(response.read_body)
+  end
+
+  def section(endpoint)
+    url = @url
+    url += "/movie/#{endpoint}?language=en-US&page=1"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    response = JSON.parse(response.read_body)
+    @genres = Movie::MOVIE_GENRES
+    return response
   end
 
   private
 
   def set_tmdb
     @token_key = ENV["TMDB_TOKEN"]
+    @url = "https://api.themoviedb.org/3"
   end
 
+  def resource
+    name.split('::').last.downcase
+  end
 end
