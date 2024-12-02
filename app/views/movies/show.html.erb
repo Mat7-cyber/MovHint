@@ -6,14 +6,23 @@
 </div>
 
 <% if current_user %>
-	<div class="button-center">
-		<button class="button-movie-favorite <%= "button-liked" if @liked %>" 
-		data-controller="event-listener"
-		data-action="click->event-listener#enable">
-		<i class="fa-solid fa-plus"></i>
-		</button>
-	</div>
+  <div class="button-center">
+    <% if current_user.prefered_movies.include?(@movie) %>
+      <%= form_with url: movie_preferences_path(@movie), method: :delete, local: true do %>
+        <button type="submit" class="button-movie-favorite button-liked">
+          <i class="fa-solid fa-thumbs-up"></i>
+        </button>
+      <% end %>
+    <% else %>
+      <%= form_with url: movie_preferences_path(@movie), method: :post, local: true do %>
+        <button type="submit" class="button-movie-favorite">
+          <i class="fa-solid fa-plus"></i> Like
+        </button>
+      <% end %>
+    <% end %>
+  </div>
 <% end %>
+
 
 <div class="container-show">
 
@@ -22,7 +31,9 @@
 		<h1 class="movie-title"><strong><%= @movie.original_title%></strong></h1>
 
 		<div class="movie-tagline">
-				<h4 class="tagline"><em><i class="fa-solid fa-quote-left"></i> <%= @movie.tagline%> <i class="fa-solid fa-quote-left fa-mirror"></i></em></h4>
+				<h4 data-display-text-text-value="<%= @movie.tagline%>"
+				data-display-text-target="text"
+				data-controller="display-text"></h4>
 		</div>
 
 		<div class="infos">
@@ -39,8 +50,8 @@
 			<h3><strong>RATING:</strong></h3>
 			<div class="infos-rating" data-controller="stars" data-stars-count-value="<%= @movie.vote_average.round(2)%>">
 				<p class="number-crew-genre"
-				data-stars-target="rating-number"
-				data-action="click>rating-number#display_stars"><%= @movie.vote_average.round(2)%></p>
+				data-stars-target="ratingNumber"
+				><%= @movie.vote_average.round(2)%></p>
 			</div>
 		</div>
 
@@ -101,4 +112,3 @@
 		</div>
 	</div>
 </div>
-

@@ -16,6 +16,7 @@ class MoviesController < ApplicationController
     else
       @movies = Movie.all
     end
+
   end
 
   def show
@@ -25,6 +26,13 @@ class MoviesController < ApplicationController
         lat: current_user.latitude,
         lng: current_user.longitude
       }
+    @pickups = Pickup.all
+    @pickups.each do |pickup|
+      {  lat: pickup.latitude,
+      lng: pickup.longitude,
+      info_window_html: render_to_string(partial: "info_window"),
+      }
+    end
     @liked = false
   end
 
