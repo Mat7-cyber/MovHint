@@ -9,4 +9,7 @@ class DashboardsController < ApplicationController
     @movies = Movie.all
   end
 
+  
+
+
 end
