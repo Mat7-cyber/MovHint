@@ -1,4 +1,6 @@
 class Movie < ApplicationRecord
+  has_many :preferences
+  has_many :users, through: :preferences
   MOVIE_GENRES = {
     28 => "Action",
     12 => "Adventure",

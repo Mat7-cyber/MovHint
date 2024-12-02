@@ -95,3 +95,14 @@
 <%# ------------- \/ Keep out of contaitner \/ --------------------------%>
 
 <%= render "shared/genre_modal" %>
+
+
+<% if current_user %>
+	<div class="button-center">
+		<button class="button-movie-favorite <%= "button-liked" if @liked %>"
+		data-controller="event-listener"
+		data-action="click->event-listener#enable">
+		<i class="fa-solid fa-plus"></i>
+		</button>
+	</div>
+<% end %>
