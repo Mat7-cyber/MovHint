@@ -2,12 +2,24 @@
 
     <div class="header">
         <%= link_to dashboard_path do %>
+             <%if  current_user.nil? %>
+             <img class="avatar-bordered" alt="avatar-bordered" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ24DB9YaxDSdUTa-R7YH9UJD96A-3yMf2lw&s">
+            <% else %>
             <%= cl_image_tag(current_user.photo.key, class: "avatar-bordered", alt: "avatar-bordered") %>
-            <%# <img class="avatar-bordered" alt="avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/arthur-littm"> %>
+
+            <% end %>
+
         <% end %>
+
+
         <div class="greeting">
-            <h1>Hello Mathieu</h1>
+          <% if current_user.nil? %>
+            <h1>Hello Guest</h1>
+          <% else %>
+            <h1>Hello <%= "#{current_user.first_name}"%></h1>
             <span>Let's watch your favorite movie</span>
+          <% end %>
+
         </div>
         <div class="favorite">
         <%= link_to preferences_dashboard_path do %>
@@ -31,10 +43,9 @@
     <div class="mostpopular">
       <div class="header">
         <h2>Most Popular</h2>
-      <a href="#" class="see-all">See All</a>
+      <%= link_to "See All", movies_path(most_popular: true), class: "see-all" %>
       </div>
        <div class="movies">
-        <% if current_user %>
         <% @most_popular["results"].each do |result| %>
           
           <%= link_to movie_path(result["original_title"]) do %>
@@ -45,10 +56,8 @@
               </div>
               <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
               <p><%= @genres[result["genre_ids"].first] %></p>
-            </div>
-            
+            </div>          
           <% end %>
-            
         <% end %>
       </div>
     </div>
@@ -58,7 +67,7 @@
     <div class="toprating">
         <div class="header">
             <h2>Top rating</h2>
-            <a href="#" class="see-all">See All</a>
+          <%= link_to "See All", movies_path(top_rated: true), class: "see-all" %>
         </div>
         <div class="movies">
         <% @top_rating["results"].each do |result| %>
@@ -85,7 +94,7 @@
     <div class="upcoming">
         <div class="header">
             <h2>Upcoming</h2><h6>and recently released</h6>
-            <a href="#" class="see-all">See All</a>
+          <%= link_to "See All", movies_path(upcoming: true), class: "see-all" %>
         </div>
         <div class="movies">
         <% @upcoming["results"].each do |result| %>
@@ -103,7 +112,6 @@
           <% end %>
           
         <% end %>
-        <% end %>
 
       </div>
     </div>
@@ -113,3 +121,4 @@
 <%# ------------- \/ Keep out of contaitner \/ --------------------------%>
 
 <%= render "shared/genre_modal" %>
+

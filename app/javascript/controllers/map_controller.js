@@ -5,7 +5,9 @@ export default class extends Controller {
   static values = {
     apiKey: String,
     userMarker: Object,
-    user: Object
+    user: Object,
+    pickups: Array,
+
   }
 
   connect() {
@@ -17,9 +19,10 @@ export default class extends Controller {
       center: [3.066667, 50.633333],
       zoom: 10
     })
-
+    console.log(this.pickupsValue)
     this.#addMarkerToMap()
     this.#fitMapToMarkers()
+    this.#addPickupMarkers()
   }
 
 
@@ -31,8 +34,23 @@ export default class extends Controller {
   }
 
   #addMarkerToMap() {
-    new mapboxgl.Marker()
+    new mapboxgl.Marker({color: "#FF204E"})
     .setLngLat([this.userMarkerValue.lng, this.userMarkerValue.lat])
     .addTo(this.map)
   }
+
+  #addPickupMarkers() {
+    this.pickupsValue.forEach((pickup) => {
+      const nameAddress = pickup.name + ' -- ' + pickup.address
+      const popup = new mapboxgl.Popup().setHTML(nameAddress)
+
+      new mapboxgl.Marker()
+        .setLngLat([pickup.longitude, pickup.latitude])
+        .setPopup(popup)
+        .addTo(this.map)
+    })
+  }
+
+
+
 }

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :movies, only: [:index, :show], param: :title do
     resources :suggestions, only: [:update]
+    resource :preferences, only: [:create, :destroy]
   end
 
 end
