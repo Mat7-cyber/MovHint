@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_tmdb, only: [:index]
+  before_action :set_tmdb, only: [:index, :show]
 
   def index
     @genres = Movie::MOVIE_GENRES
@@ -20,7 +20,19 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    movie_id = find_movie_id(params[:title])
+    @movie = details(movie_id)
+    @casting = credits(movie_id)
+    @trailer = videos(movie_id)
+    @stream = watch_providers(movie_id)
+    @directors = @casting["crew"]
+    .select { |hash| hash["job"] == "Director" }
+    .map { |hash| hash["name"] }
+    .join(", ")
+    @trailers = @trailer["results"]
+    .select { |hash| hash["type"] == "Trailer" }
+    .map { |hash| hash["key"] }
+    .join(", ")
     @markers =
       {
         lat: current_user.latitude,
@@ -34,6 +46,22 @@ class MoviesController < ApplicationController
       }
     end
     @liked = false
+  end
+
+
+  def find_movie_id(title)
+    url = "https://api.themoviedb.org/3/search/movie?query=#{title}&include_adult=false&language=en-US&page=1"
+      url = URI(url)
+      http = Net::HTTP.new(url.host, url.port)
+      http.use_ssl = true
+      request = Net::HTTP::Get.new(url)
+      request["accept"] = 'application/json'
+      request["Authorization"] = "Bearer #{@token_key}"
+
+      response = http.request(request)
+      response = JSON.parse(response.read_body)
+      movie_id = response["results"][0]["id"]
+      return movie_id
   end
 
   def search(query, options = {})
@@ -84,7 +112,69 @@ class MoviesController < ApplicationController
     @url = "https://api.themoviedb.org/3"
   end
 
+  def details(movie_id)
+    url = @url
+    url += "/movie/#{movie_id}?language=en-US"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    response = JSON.parse(response.read_body)
+    @genres = Movie::MOVIE_GENRES
+    return response
+  end
+end
+
+def videos(movie_id)
+  url = @url
+  url += "/movie/#{movie_id}/videos?language=en-US"
+  url = URI(url)
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(url)
+  request["accept"] = 'application/json'
+  request["Authorization"] = "Bearer #{@token_key}"
+  response = http.request(request)
+  response = JSON.parse(response.read_body)
+  @genres = Movie::MOVIE_GENRES
+  return response
+end
+
+def credits(movie_id)
+  url = @url
+  url += "/movie/#{movie_id}/credits?language=en-US"
+  url = URI(url)
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(url)
+  request["accept"] = 'application/json'
+  request["Authorization"] = "Bearer #{@token_key}"
+  response = http.request(request)
+  response = JSON.parse(response.read_body)
+  @genres = Movie::MOVIE_GENRES
+  return response
+end
+
+
+def watch_providers(movie_id)
+  url = @url
+  url += "/movie/#{movie_id}/watch/providers"
+  url = URI(url)
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(url)
+  request["accept"] = 'application/json'
+  request["Authorization"] = "Bearer #{@token_key}"
+  response = http.request(request)
+  response = JSON.parse(response.read_body)
+  @genres = Movie::MOVIE_GENRES
+  return response
+  
   def resource
     name.split('::').last.downcase
   end
+  
 end
