@@ -5,9 +5,11 @@
 	</button>
 </div>
 
+
+
 <% if current_user %>
 	<div class="button-center">
-		<button class="button-movie-favorite <%= "button-liked" if @liked %>" 
+		<button class="button-movie-favorite <%= "button-liked" if @liked %>"
 		data-controller="event-listener"
 		data-action="click->event-listener#enable">
 		<i class="fa-solid fa-plus"></i>
