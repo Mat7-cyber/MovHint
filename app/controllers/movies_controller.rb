@@ -20,11 +20,11 @@ class MoviesController < ApplicationController
   end
 
   def show
-    movie_id = find_movie_id(params[:title])
-    @movie = details(movie_id)
-    @casting = credits(movie_id)
-    @trailer = videos(movie_id)
-    @stream = watch_providers(movie_id)
+    @movie_id = find_movie_id(params[:title])
+    @movie = details(@movie_id)
+    @casting = credits(@movie_id)
+    @trailer = videos(@movie_id)
+    @stream = watch_providers(@movie_id)
     @directors = @casting["crew"]
     .select { |hash| hash["job"] == "Director" }
     .map { |hash| hash["name"] }
@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
         }
     end
   end
-    @liked = current_user.preferences.one? {|preference| preference[:movie_id] == movie_id }
+    @liked = current_user.preferences.one? {|preference| preference.movie_id == @movie_id }
   end
 
 

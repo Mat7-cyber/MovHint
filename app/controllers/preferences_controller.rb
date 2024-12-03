@@ -1,21 +1,12 @@
 class PreferencesController < ApplicationController
   before_action :authenticate_user!
-
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
   def create
-    @movie = Movie.find(params[:title])
-
-    unless current_user.prefered_movies.include?(@movie)
-      current_user.prefered_movies << @movie
-    end
-    redirect_to movie_path(@movie)
+    Preference.create(movie_id: params[:movie_id].to_i, user: current_user)
   end
 
   def destroy
-    @movie = Movie.find(params[:title])
-
-    if current_user.prefered_movies.include?(@movie)
-      current_user.prefered_movies.delete(@movie)
-    end
-    redirect_to movie_path(@movie)
+    Preference.where(movie_id: params[:movie_id].to_i, user: current_user).destroy
   end
+
 end

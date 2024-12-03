@@ -4,12 +4,12 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static values = {
     liked: Boolean,
+    movieId: String
   };
 
   connect() {
-    console.log(this.likedValue);
+    console.log(this.movieIdValue);
     this.displayPreference(this.likedValue);
-    this.togglePreference
   }
 
   displayPreference(isLiked) {
@@ -22,17 +22,31 @@ export default class extends Controller {
     }
   }
 
-togglePreference() {
-  const movieId = this.formTarget.dataset.movieId;
-  this.displayPreference(!this.likedValue);
+  togglePreference() {
+    const method = this.likedValue ? "DELETE" : "POST"
+
+    const movieId = this.movieIdValue;
+
+    fetch(`/preferences`, { // Second argument allows to precise verb, headers and body
+      method: method,
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({"movie_id": movieId})
+    })
 
 
+
+  }
+
+
+
+}
+
+  /*
   fetch(this.formTarget.action, {
     method: "POST",
     headers: { "Accept": "application/json" },
     body: new FormData(this.formTarget)
-  })
-  .then(response => {
+  }).then(response => {
     return response.json();
   })
   .then(data => {
@@ -47,5 +61,4 @@ togglePreference() {
     });
   })
   .then(response => response.json())
-}
-}
+ */

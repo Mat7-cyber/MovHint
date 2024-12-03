@@ -16,12 +16,13 @@ Rails.application.routes.draw do
 
 
 
+  resources :preferences, only: [:create]
+  resource :preferences, only: [:destroy]
 
   # Defines the root path route ("/")
   # root "posts#index"
   resources :movies, only: [:index, :show], param: :title do
     resources :suggestions, only: [:update]
-    resources :preferences, only: [:create, :destroy]
   end
 
 end
