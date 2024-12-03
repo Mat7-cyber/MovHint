@@ -8,7 +8,7 @@ class PreferencesController < ApplicationController
       current_user.prefered_movies << @movie
     end
 
-    redirect_to movie_path(@movie), notice: 'Movie added to your preferences!'
+    redirect_to movie_path(@movie)
   end
 
   def destroy
@@ -18,6 +18,6 @@ class PreferencesController < ApplicationController
       current_user.prefered_movies.delete(@movie)
     end
 
-    redirect_to movie_path(@movie), notice: 'Movie removed from your preferences.'
+    redirect_to movie_path(@movie)
   end
 end

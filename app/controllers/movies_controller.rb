@@ -20,7 +20,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    movie_id = find_movie_id(params[:title])
+    movie_id = find_movie_id(params[:id])
     @movie = details(movie_id)
     @casting = credits(movie_id)
     @trailer = videos(movie_id)
@@ -172,9 +172,9 @@ def watch_providers(movie_id)
   response = JSON.parse(response.read_body)
   @genres = Movie::MOVIE_GENRES
   return response
-  
+
   def resource
     name.split('::').last.downcase
   end
-  
+
 end
