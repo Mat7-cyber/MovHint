@@ -47,16 +47,18 @@
       </div>
        <div class="movies">
         <% @most_popular["results"].each do |result| %>
-          <div class="movie">
-            <div class="rating">
-              <span>⭐ <%= result["vote_average"] %></span>
-            </div>
-            <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
-            <p><%= @genres[result["genre_ids"].first] %></p>
-          </div>
+          
+          <%= link_to movie_path(result["original_title"]) do %>
 
+            <div class="movie">
+              <div class="rating">
+                <span>⭐ <%= result["vote_average"] %></span>
+              </div>
+              <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
+              <p><%= @genres[result["genre_ids"].first] %></p>
+            </div>          
+          <% end %>
         <% end %>
-
       </div>
     </div>
 
@@ -69,6 +71,9 @@
         </div>
         <div class="movies">
         <% @top_rating["results"].each do |result| %>
+
+        <%= link_to movie_path(result["original_title"]) do %>
+
           <div class="movie">
             <div class="rating">
               <span>⭐ <%= result["vote_average"] %></span>
@@ -76,6 +81,9 @@
             <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
             <p><%= @genres[result["genre_ids"].first] %></p>
           </div>
+
+          <% end %>
+
         <% end %>
       </div>
     </div>
@@ -90,6 +98,9 @@
         </div>
         <div class="movies">
         <% @upcoming["results"].each do |result| %>
+
+        <%= link_to movie_path(result["original_title"]) do %>
+
           <div class="movie">
              <div class="release">
                     <span><%= result["release_date"] %></span>
@@ -97,6 +108,9 @@
             <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
             <p><%= @genres[result["genre_ids"].first] %></p>
           </div>
+
+          <% end %>
+          
         <% end %>
 
       </div>
