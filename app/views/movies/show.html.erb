@@ -8,9 +8,11 @@
 
 
 <% if current_user %>
-  <div class="button-center" >
+  <div class="button-center" data-controller="event_listener">
     <% if current_user.prefered_movies.include?(@movie) %>
-      <%= form_with url: preferences_dashboard_path(@movie), method: :delete, local: true do %>
+    
+      <%= form_with url: movie_preferences_path(@movie), data: {action:"click->event_listener#enable"}, method: :delete, local: true do %>
+
         <button type="submit" class="button-movie-favorite button-liked">
           <i class="fa-solid fa-thumbs-up"></i>
         </button>
