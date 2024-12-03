@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :movies, only: [:index, :show] param: :title do
+  resources :movies, only: [:index, :show], param: :title do
     resources :suggestions, only: [:update]
     resources :preferences, only: [:create, :destroy]
   end
