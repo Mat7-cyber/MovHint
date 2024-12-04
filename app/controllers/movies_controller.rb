@@ -16,10 +16,7 @@ class MoviesController < ApplicationController
     else
       @movies = Movie.all
     end
-
-
   end
-
 
   def show
     movie_id = find_movie_id(params[:title])
@@ -49,7 +46,6 @@ class MoviesController < ApplicationController
     end
     @liked = false
   end
-
 
   def find_movie_id(title)
     url = "https://api.themoviedb.org/3/search/movie?query=#{title}&include_adult=false&language=en-US&page=1"
@@ -129,7 +125,6 @@ class MoviesController < ApplicationController
     return response
   end
 
-
   def videos(movie_id)
     url = @url
     url += "/movie/#{movie_id}/videos?language=en-US"
@@ -160,7 +155,6 @@ class MoviesController < ApplicationController
     return response
   end
 
-
   def watch_providers(movie_id)
     url = @url
     url += "/movie/#{movie_id}/watch/providers"
@@ -174,27 +168,10 @@ class MoviesController < ApplicationController
     response = JSON.parse(response.read_body)
     @genres = Movie::MOVIE_GENRES
     return response
-
-    # d
-
-
-def watch_providers(movie_id)
-  url = @url
-  url += "/movie/#{movie_id}/watch/providers"
-  url = URI(url)
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  request = Net::HTTP::Get.new(url)
-  request["accept"] = 'application/json'
-  request["Authorization"] = "Bearer #{@token_key}"
-  response = http.request(request)
-  response = JSON.parse(response.read_body)
-  @genres = Movie::MOVIE_GENRES
-  return response
+  end
 
   def resource
     name.split('::').last.downcase
   end
-
 
 end
