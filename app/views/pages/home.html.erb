@@ -1,5 +1,3 @@
-
-
     <div class="header">
         <%= link_to dashboard_path do %>
              <%if  current_user.nil? %>
@@ -11,13 +9,12 @@
 
         <% end %>
 
-
         <div class="greeting">
           <% if current_user.nil? %>
             <h1>Hello Guest</h1>
           <% else %>
             <h1>Hello <%= "#{current_user.first_name}"%></h1>
-            <span>Let's watch your favorite movie</span>
+            <span>Let's watch your favorite movies!</span>
           <% end %>
 
         </div>
@@ -93,7 +90,6 @@
       </div>
     </div>
 
-
     <hr>
 
     <div class="upcoming">
@@ -120,8 +116,6 @@
 
       </div>
     </div>
-
-
 
 <%# ------------- \/ Keep out of contaitner \/ --------------------------%>
 
