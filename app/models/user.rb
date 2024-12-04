@@ -23,6 +23,7 @@ class User < ApplicationRecord
                   "Context: Basé sur l'API TMDB.
                   Tu vas recevoir une liste de titre de films TMDB
                   Suggères moi 10 films qui correspondents.
+                  Si la liste est vide, ne me suggère rien.
                   Tu ne peux pas me suggérer un film que tu as reçu
                   Instructions :
                   1. Je veux une réponse en format JSON, non verbeuse.
