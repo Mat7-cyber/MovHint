@@ -19,3 +19,4 @@ class PreferencesController < ApplicationController
     redirect_to movie_path(@movie)
   end
 end
+#l
