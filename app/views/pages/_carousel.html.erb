@@ -3,8 +3,9 @@
   <div class="carousel-inner">
   <% movies.each.with_index do |movie, index| %>
     <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-
+       <a href="<%= movie_path(movie[:title]) %>">
       <%= image_tag "https://image.tmdb.org/t/p/w200#{find_movie_poster(movie[:id])}" %>
+        </a>
     </div>
   <% end %>
   </div>
