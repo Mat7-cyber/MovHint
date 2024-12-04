@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
 
   def index
     @genres = Movie::MOVIE_GENRES
+
     @movies = if params[:query]
                 search(params[:query])
               elsif params[:genre_id]
@@ -21,7 +22,6 @@ class MoviesController < ApplicationController
     return "upcoming" if params["upcoming"] == "true"
 
   end
-
 
   def show
     @movie_id = find_movie_id(params[:title])
@@ -131,7 +131,6 @@ class MoviesController < ApplicationController
     return response
   end
 
-
   def videos(movie_id)
     url = @url
     url += "/movie/#{movie_id}/videos?language=en-US"
@@ -162,7 +161,6 @@ class MoviesController < ApplicationController
     return response
   end
 
-
   def watch_providers(movie_id)
     url = @url
     url += "/movie/#{movie_id}/watch/providers"
@@ -177,8 +175,6 @@ class MoviesController < ApplicationController
     @genres = Movie::MOVIE_GENRES
     return response
   end
-  def resource
-    name.split('::').last.downcase
-  end
+
 
 end
