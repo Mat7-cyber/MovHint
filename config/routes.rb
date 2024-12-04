@@ -14,17 +14,14 @@ Rails.application.routes.draw do
     end
   end
 
-
-
-  resources :preferences, only: [:create]
-  resource :preferences, only: [:destroy]
+  # Can create and destroy an instance of preference
+  post 'preferences/toggle/:movie_id', to: 'preferences#toggle', as: 'toggle_preference'
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :movies, only: [:index, :show], param: :title do
+  resources :movies, only: %i[index show], param: :title do
     resources :suggestions, only: [:update]
   end
-
 end
 
-  # routes des profiles à déterminer
+# routes des profiles à déterminer

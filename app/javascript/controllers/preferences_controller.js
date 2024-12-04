@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus";
 export default class extends Controller {
   static values = {
     liked: Boolean,
-    movieId: String
+    movieId: String,
   };
 
   connect() {
@@ -23,25 +23,25 @@ export default class extends Controller {
   }
 
   togglePreference() {
-    const method = this.likedValue ? "DELETE" : "POST"
+    const method = this.likedValue ? "DELETE" : "POST";
 
     const movieId = this.movieIdValue;
 
-    fetch(`/preferences`, { // Second argument allows to precise verb, headers and body
-      method: method,
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({"movie_id": movieId})
-    })
-
+    fetch(`/preferences/toggle/${movieId}`, {
+      // Second argument allows to precise verb, headers and body
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ method: method }),
+      // body: JSON.stringify({"movie_id": movieId})
+    });
+    this.likedValue = !this.likedValue;
+    this.displayPreference(this.likedValue);
 
 
   }
-
-
-
 }
 
-  /*
+/*
   fetch(this.formTarget.action, {
     method: "POST",
     headers: { "Accept": "application/json" },
