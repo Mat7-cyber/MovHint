@@ -9,11 +9,11 @@
 
 <% if current_user %>
 	<div class="button-center">
-		<button class="button-movie-favorite <%= "button-liked" if @liked %>"
-		data-controller="event-listener"
-		data-action="click->event-listener#enable">
-		<i class="fa-solid fa-plus"></i>
-		</button>
+		<button class="button-movie-favorite"
+		data-controller="preferences"
+		data-action="click->preferences#togglePreference"
+    data-preferences-liked-value="<%= @liked %>"
+    data-preferences-movie-id-value="<%= @movie_id %>"></button>
 	</div>
 <% end %>
 
@@ -94,10 +94,14 @@
 		<% end  %>
 	</div>
 
+<% if current_user %>
 	<div class="movie-map">
 		<h3 class="stream-buy">Move !</h3>
 		<%= render "mapbox" %>
 	</div>
+
+<% end %>
+
 
 </div>
 
