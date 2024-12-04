@@ -177,5 +177,24 @@ class MoviesController < ApplicationController
 
     # d
 
+
+def watch_providers(movie_id)
+  url = @url
+  url += "/movie/#{movie_id}/watch/providers"
+  url = URI(url)
+  http = Net::HTTP.new(url.host, url.port)
+  http.use_ssl = true
+  request = Net::HTTP::Get.new(url)
+  request["accept"] = 'application/json'
+  request["Authorization"] = "Bearer #{@token_key}"
+  response = http.request(request)
+  response = JSON.parse(response.read_body)
+  @genres = Movie::MOVIE_GENRES
+  return response
+
+  def resource
+    name.split('::').last.downcase
   end
+
+
 end

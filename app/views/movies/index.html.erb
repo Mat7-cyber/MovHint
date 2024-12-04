@@ -1,26 +1,27 @@
 <%= render "shared/searchbar" %>
 
-
-
 <div class="moviesresult">
   <% @movies["results"].each do |movie| %>
-    <div class="movieresult">
-      <div class="ratingresult">
-        <span>⭐ <%= movie["vote_average"] %></span>
-      </div>
-      <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
-      <div class="movie-details">
-        <div class="movie-meta">
-          <div class="titleresult"><p><%= movie["title"] %><p></div>
-          <h6>Release date :</h6>
-          <span>📅<%= movie["release_date"] %></span>
-          <h6>Overview</h6>
-          <span>🕒<%= truncate(movie["overview"], length: 100, separator: ' ', omission: '...')%></span>
-          <h6>Genre</h6>
-          <span>📚<%= @genres[movie["genre_ids"].first] %></span>
+
+  <%= link_to movie_path(movie["original_title"]) do %>
+      <div class="movieresult">
+        <div class="ratingresult">
+          <span>⭐ <%= movie["vote_average"] %></span>
+        </div>
+        <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
+        <div class="movie-details">
+          <div class="movie-meta">
+            <div class="titleresult"><p><%= movie["title"] %><p></div>
+              <h6>Release date :</h6>
+              <span>📅<%= movie["release_date"] %></span>
+              <h6>Overview</h6>
+              <span>🕒<%= truncate(movie["overview"], length: 100, separator: ' ', omission: '...')%></span>
+              <h6>Genre</h6>
+              <span>📚<%= @genres[movie["genre_ids"].first] %></span>
+          </div>
         </div>
       </div>
-    </div>
-    <hr>
+      <hr>
+ <% end %>
   <% end %>
 </div>
