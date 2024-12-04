@@ -5,7 +5,22 @@ class PagesController < ApplicationController
     @most_popular = section("popular")
     @top_rating = section("top_rated")
     @upcoming = section("upcoming")
+    if current_user
+      movie_titles = current_user.suggest
+      @movies = movie_titles.map do |title|
+        movie_id = helpers.find_movie_id(title)
+        {
+          title: title,
+          id: movie_id
+        }
+      end
+    end
   end
+
+
+  def index
+  end
+
 
   def genres
 
@@ -27,10 +42,10 @@ class PagesController < ApplicationController
   end
 
   private
-  
+
   def set_tmdb
     @token_key = ENV["TMDB_TOKEN"]
     @url = "https://api.themoviedb.org/3"
   end
-  
+
 end

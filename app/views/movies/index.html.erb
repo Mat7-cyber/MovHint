@@ -1,17 +1,15 @@
 <%= render "shared/searchbar" %>
-
-
-
-<div class="moviesresult">
-  <% @movies["results"].each do |movie| %>
-    <div class="movieresult">
-    <div class="movie">
-      <div class="rating">
+<%= link_to movie_path(movie["original_title"]) do %>
+  <div class="moviesresult">
+    <% @movies["results"].each do |movie| %>
+      <div class="movieresult">
+       <div class="movie">
+        <div class="rating">
         <span>⭐ <%= movie["vote_average"] %></span>
-      </div>
-      <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
-      <p><%= @genres[movie["genre_ids"].first] %></p>
-      </div>
+        </div>
+        <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
+        <p><%= @genres[movie["genre_ids"].first] %></p>
+        </div>
       <div class="movie-details">
         <div class="movie-meta">
           <p><strong><%= movie["title"] %></strong></p>
@@ -23,5 +21,6 @@
       </div>
     </div>
     <hr>
-  <% end %>
+ <% end %>
+<% end %>
 </div>
