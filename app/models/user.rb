@@ -14,7 +14,8 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   def suggest
-    titles = preferences.pluck(:movie_id).map { |id| URI.encode_www_form_component(find_movie_title(id) )}
+
+    titles = preferences.pluck(:movie_id).map { |id| find_movie_title(id)}
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
@@ -29,6 +30,8 @@ class User < ApplicationRecord
                   1. Je veux une réponse en format JSON, non verbeuse.
                   2. Pas d'interpolation json
                   3. Je veux uniquement les titres des films que tu suggéreras
+                  4. La clé du hash doit toujours être 'suggestions'
+                  5. Donne moi uniquement les titres en anglais
                   "},
                 { role: "user", content: titles.join }] # TODO : Remplacer la string par titles
     })
