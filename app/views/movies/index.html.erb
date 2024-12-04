@@ -1,27 +1,26 @@
 <%= render "shared/searchbar" %>
-
-<div class="moviesresult">
-  <% @movies["results"].each do |movie| %>
-
-  <%= link_to movie_path(movie["original_title"]) do %>
+<%= link_to movie_path(movie["original_title"]) do %>
+  <div class="moviesresult">
+    <% @movies["results"].each do |movie| %>
       <div class="movieresult">
-        <div class="ratingresult">
-          <span>⭐ <%= movie["vote_average"] %></span>
+       <div class="movie">
+        <div class="rating">
+        <span>⭐ <%= movie["vote_average"] %></span>
         </div>
         <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
-        <div class="movie-details">
-          <div class="movie-meta">
-            <div class="titleresult"><p><%= movie["title"] %><p></div>
-              <h6>Release date :</h6>
-              <span>📅<%= movie["release_date"] %></span>
-              <h6>Overview</h6>
-              <span>🕒<%= truncate(movie["overview"], length: 100, separator: ' ', omission: '...')%></span>
-              <h6>Genre</h6>
-              <span>📚<%= @genres[movie["genre_ids"].first] %></span>
-          </div>
+        <p><%= @genres[movie["genre_ids"].first] %></p>
+        </div>
+      <div class="movie-details">
+        <div class="movie-meta">
+          <p><strong><%= movie["title"] %></strong></p>
+          <p>Release date :</p>
+            <span><%= movie["release_date"] %></span>
+          <p>Overview</p>
+            <p style="display: flex;color: #FAE9B8;text-align: initial;font-size: 10px;"><%= truncate(movie["overview"], length: 100, separator: '', omission: '...')%></p>
         </div>
       </div>
-      <hr>
+    </div>
+    <hr>
  <% end %>
-  <% end %>
+<% end %>
 </div>
