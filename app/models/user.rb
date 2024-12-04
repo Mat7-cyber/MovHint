@@ -14,18 +14,39 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   def suggest
-
+    titles = preferences.pluck(:movie_id).map { |id| find_movie_title(id) }
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      messages: [{ role: "user", content: "voici une liste de films : #{@original_titles} fais moi une suggestions de 5 films par rapport à ceux donnés ci-dessus
-instruction :
-pas d'interpolation json
-Je veux uniquement les titres des films que tu suggéreras
-Je veux une réponse en format json, non verbeuse"}]
+      temperature: 0.4,
+      messages: [{ role: "system", content:
+                  "Context: Basé sur l'API TMDB.
+                  Tu vas recevoir une liste de titre de films TMDB
+                  Suggères moi 5 films qui correspondents.
+                  Instructions :
+                  1. Je veux une réponse en format JSON, non verbeuse.
+                  2. Pas d'interpolation json
+                  3. Je veux uniquement les titres des films que tu suggéreras
+                  "},
+                { role: "user", content: "Jingle all the way" }] # TODO : Remplacer la string par titles
     })
-    content = chatgpt_response["choices"][0]["message"]["content"]
+    content = JSON.parse(chatgpt_response["choices"][0]["message"]["content"])["suggestions"]
   end
 
+  private
+
+  def find_movie_title(id)
+    url = "https://api.themoviedb.org/3/movie/#{id}?language=en-US"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{ENV["TMDB_TOKEN"]}"
+
+    response = http.request(request)
+    response = JSON.parse(response.read_body)
+    response["original_title"]
+  end
 
 end

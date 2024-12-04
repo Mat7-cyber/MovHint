@@ -29,11 +29,14 @@ class MoviesController < ApplicationController
               end
   end
 
+
   def determine_section(params)
     return "popular" if params["most_popular"] == "true"
     return "top_rated" if params["top_rated"] == "true"
     return "upcoming" if params["upcoming"] == "true"
+
   end
+
 
   def show
     @movie_id = find_movie_id(params[:title])
@@ -142,49 +145,55 @@ class MoviesController < ApplicationController
     @genres = Movie::MOVIE_GENRES
     return response
   end
-end
 
-def videos(movie_id)
-  url = @url
-  url += "/movie/#{movie_id}/videos?language=en-US"
-  url = URI(url)
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  request = Net::HTTP::Get.new(url)
-  request["accept"] = 'application/json'
-  request["Authorization"] = "Bearer #{@token_key}"
-  response = http.request(request)
-  response = JSON.parse(response.read_body)
-  @genres = Movie::MOVIE_GENRES
-  return response
-end
 
-def credits(movie_id)
-  url = @url
-  url += "/movie/#{movie_id}/credits?language=en-US"
-  url = URI(url)
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  request = Net::HTTP::Get.new(url)
-  request["accept"] = 'application/json'
-  request["Authorization"] = "Bearer #{@token_key}"
-  response = http.request(request)
-  response = JSON.parse(response.read_body)
-  @genres = Movie::MOVIE_GENRES
-  return response
-end
+  def videos(movie_id)
+    url = @url
+    url += "/movie/#{movie_id}/videos?language=en-US"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    response = JSON.parse(response.read_body)
+    @genres = Movie::MOVIE_GENRES
+    return response
+  end
 
-def watch_providers(movie_id)
-  url = @url
-  url += "/movie/#{movie_id}/watch/providers"
-  url = URI(url)
-  http = Net::HTTP.new(url.host, url.port)
-  http.use_ssl = true
-  request = Net::HTTP::Get.new(url)
-  request["accept"] = 'application/json'
-  request["Authorization"] = "Bearer #{@token_key}"
-  response = http.request(request)
-  response = JSON.parse(response.read_body)
-  @genres = Movie::MOVIE_GENRES
-  return response
+  def credits(movie_id)
+    url = @url
+    url += "/movie/#{movie_id}/credits?language=en-US"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    response = JSON.parse(response.read_body)
+    @genres = Movie::MOVIE_GENRES
+    return response
+  end
+
+
+  def watch_providers(movie_id)
+    url = @url
+    url += "/movie/#{movie_id}/watch/providers"
+    url = URI(url)
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+    request = Net::HTTP::Get.new(url)
+    request["accept"] = 'application/json'
+    request["Authorization"] = "Bearer #{@token_key}"
+    response = http.request(request)
+    response = JSON.parse(response.read_body)
+    @genres = Movie::MOVIE_GENRES
+    return response
+  end
+  def resource
+    name.split('::').last.downcase
+  end
+
 end
