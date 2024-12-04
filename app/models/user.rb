@@ -14,21 +14,22 @@ class User < ApplicationRecord
   has_one_attached :photo
 
   def suggest
-    titles = preferences.pluck(:movie_id).map { |id| find_movie_title(id) }
+    titles = preferences.pluck(:movie_id).map { |id| URI.encode_www_form_component(find_movie_title(id) )}
     client = OpenAI::Client.new
     chatgpt_response = client.chat(parameters: {
       model: "gpt-4o-mini",
-      temperature: 0.4,
+      temperature: 1,
       messages: [{ role: "system", content:
                   "Context: Basé sur l'API TMDB.
                   Tu vas recevoir une liste de titre de films TMDB
-                  Suggères moi 5 films qui correspondents.
+                  Suggères moi 10 films qui correspondents.
+                  Tu ne peux pas me suggérer un film que tu as reçu
                   Instructions :
                   1. Je veux une réponse en format JSON, non verbeuse.
                   2. Pas d'interpolation json
                   3. Je veux uniquement les titres des films que tu suggéreras
                   "},
-                { role: "user", content: "Jingle all the way" }] # TODO : Remplacer la string par titles
+                { role: "user", content: titles.join }] # TODO : Remplacer la string par titles
     })
     content = JSON.parse(chatgpt_response["choices"][0]["message"]["content"])["suggestions"]
   end
