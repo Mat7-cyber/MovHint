@@ -1,22 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_tmdb, only: %i[index show]
 
-  def index
-    @genres = Movie::MOVIE_GENRES
-    if params[:query]
-      @movies = search(params[:query])
-    elsif params[:genre_id]
-      @movies = search_category(params[:genres_id])
-    elsif params["most_popular"] == "true"
-      @movies = section("popular")
-    elsif params["top_rated"] == "true"
-      @movies = section("top_rated")
-    elsif params["upcoming"] == "true"
-      @movies = section("upcoming")
-    else
-      @movies = Movie.all
-    end
-  end
+
 
   def index
     @genres = Movie::MOVIE_GENRES
@@ -69,7 +54,7 @@ class MoviesController < ApplicationController
   end
 
   def find_movie_id(title)
-    url = "https://api.themoviedb.org/3/search/movie?query=#{title}&include_adult=false&language=en-US&page=1"
+    url = "https://api.themoviedb.org/3/search/movie?query=#{URI.encode_www_form_component(title)}&include_adult=false&language=en-US&page=1"
     url = URI(url)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
