@@ -83,12 +83,14 @@
   <h1 ><strong>Your favourite movies</strong></h1>
   <ul class="remove-bullet">
     <% @movies.each do |movie| %>
-    <%= link_to movie_path(movie["original_title"]) do %>
       <li><hr>
-        <div class="responsive-poster-pref">
+        <div class="responsive-poster-pref"
+        data-controller="preferences"
+        data-preferences-movie-id-value="<%= movie["id"] %>">
           <div class="flexsearched">
-            <div data-controller="like">
-              <i data-target="like.heartpref" data-action="click->like#likeintodislike" class="fa-solid fa-heart likeplacement"></i>
+            <div>
+              <div class="d-inline p-3" data-action="click->preferences#removePreference"><i class="fa-solid fa-trash-can likeplacement"></i></div>
+              
               <%= image_tag "https://image.tmdb.org/t/p/original/#{movie["poster_path"]}", alt: "#{movie["original_title"]} Poster", class: "card-movieposter-pref postersearched" %>
               <div class="voteplacementpref"><p> <%= movie["vote_average"].round(2) %> <i class="fa-solid fa-star"></i></p></div>
             </div>
@@ -103,7 +105,6 @@
           </div>
         </div>
       </li>
-    <% end %>
     <% end %>
   </ul>
 </div>
