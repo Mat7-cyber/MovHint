@@ -1,15 +1,19 @@
 import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="event-listener"
 export default class extends Controller {
   static values = {
-    liked: Boolean,
+    liked: { type: Boolean, default: undefined },
     movieId: String,
   };
 
   connect() {
-    console.log(this.movieIdValue);
-    this.displayPreference(this.likedValue);
+    console.log("test",typeof this.likedValue !== undefined );
+    console.log("test2",typeof this.likedValue);
+    console.log("test2",this.likedValue);
+    
+    if (typeof this.likedValue == "boolean") {
+      this.displayPreference(this.likedValue);
+    }
   }
 
   displayPreference(isLiked) {
@@ -20,45 +24,30 @@ export default class extends Controller {
     } else {
       this.element.innerHTML = notLiked;
     }
+    
   }
 
   togglePreference() {
+    const movieId = this.movieIdValue;
     const method = this.likedValue ? "DELETE" : "POST";
 
-    const movieId = this.movieIdValue;
+    this.request(movieId, method);
+    this.likedValue = !this.likedValue;
+    this.displayPreference(this.likedValue);
+  }
 
+  removePreference() {
+    const movieId = this.movieIdValue;
+    this.request(movieId, "DELETE");
+    this.element.remove();
+  }
+
+  request(movieId, method) {
     fetch(`/preferences/toggle/${movieId}`, {
       // Second argument allows to precise verb, headers and body
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ method: method }),
-      // body: JSON.stringify({"movie_id": movieId})
     });
-    this.likedValue = !this.likedValue;
-    this.displayPreference(this.likedValue);
-
-
   }
 }
-
-/*
-  fetch(this.formTarget.action, {
-    method: "POST",
-    headers: { "Accept": "application/json" },
-    body: new FormData(this.formTarget)
-  }).then(response => {
-    return response.json();
-  })
-  .then(data => {
-
-    return fetch("http://localhost:3000/dashboard/preferences", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({ movie_id: movieId })
-    });
-  })
-  .then(response => response.json())
- */

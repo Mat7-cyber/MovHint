@@ -41,5 +41,4 @@ class DashboardsController < ApplicationController
     return response
   end
 
-
 end
