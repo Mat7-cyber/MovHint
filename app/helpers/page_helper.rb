@@ -1,6 +1,7 @@
 module PageHelper
   def find_movie_id(title)
-    url = "https://api.themoviedb.org/3/search/movie?query=#{title}&include_adult=false&language=en-US&page=1"
+    new_title = URI.encode_www_form_component(title)
+    url = "https://api.themoviedb.org/3/search/movie?query=#{new_title}&include_adult=false&language=en-US&page=1"
     url = URI(url)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
