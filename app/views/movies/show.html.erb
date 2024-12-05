@@ -62,7 +62,7 @@
 			<h3><strong>CASTING:</strong></h3>
 			<div class="actors">
 				<% @casting["cast"][0..4].each do |actor| %>
-					<p class="number-crew-genre"><%= actor["name"]%></p>
+					<p class="number-crew-genre1"><%= actor["name"]%></p>
 				<% end %>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 
 	</div>
 	<div class="movie-availability">
-		<h3 class="stream-buy">Be moved !</h3>
+		<h3 class="stream-buy" style="font-size: 16px;letter-spacing: 1px;font-weight: bold;">BE MOVED !</h3>
 		<% if  @stream["results"]["US"] %>
 
 			<% if @stream["results"]["US"]["flatrate"] %>
@@ -96,7 +96,7 @@
 
 <% if current_user %>
 	<div class="movie-map">
-		<h3 class="stream-buy">Move !</h3>
+		<h3 class="stream-buy" style="font-size: 16px;letter-spacing: 1px;font-weight: bold;">MOVE !</h3>
 		<%= render "mapbox" %>
 	</div>
 

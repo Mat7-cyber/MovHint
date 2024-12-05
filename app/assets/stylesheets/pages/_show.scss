@@ -8,6 +8,8 @@ h1 {
 
 h3 {
 	color: #DAAD00;
+  font-size: 16px;
+  letter-spacing: 1px;
   }
 
 h4 {
@@ -58,14 +60,14 @@ p {
 	animation-timing-function: ease-in-out;
 	animation-duration: 2.5s;
 
-	@keyframes text-reveal { 
-		0% { 
-			width: 0%;  
-		} 
-	
-		100% { 
-			width: 100%; 
-		} 
+	@keyframes text-reveal {
+		0% {
+			width: 0%;
+		}
+
+		100% {
+			width: 100%;
+		}
 	}
 }
 
@@ -143,9 +145,10 @@ button {
 	border-radius: 10px;
 	color: #FAE9B8;
 	display: inline-block;
-	padding: 10px;
+	padding: 5px;
 	margin-right: 10px;
 	margin-bottom: 0;
+  font-size: 13px;
 }
 
 .infos-rating {
@@ -162,19 +165,12 @@ button {
 	color: #DAAD00;
 }
 
-.actors {
-	display: flex;
-	flex-direction: column;
-}
-
-.genres {
-	display: flex;
-	flex-direction: column;
-}
 
 .stream_icon {
-	border-radius: 25px;
-	padding-bottom: 7px;
+	border-radius: 17px;
+  padding-bottom: 7px;
+  height: 70px;
+  margin-right: 10px;
 }
 
 .stream-buy {
@@ -190,4 +186,17 @@ button {
 	width: 100%;
 	object-fit: cover;
 	border-radius: 7px;
+}
+
+.number-crew-genre1 {
+  background-color: #1B1810;
+	border: 1px solid #DAAD00;
+	border-radius: 10px;
+	color: #FAE9B8;
+	display: inline-block;
+	padding: 5px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+  font-size: 13px;
+
 }
