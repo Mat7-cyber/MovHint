@@ -16,12 +16,12 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/mapbox/navigation-night-v1",
-      center: [3.066667, 50.633333],
-      zoom: 10
+      center: [3.046526, 50.635532],
+      zoom: 12
     })
     console.log(this.pickupsValue)
     this.#addMarkerToMap()
-    this.#fitMapToMarkers()
+    // this.#fitMapToMarkers()
     this.#addPickupMarkers()
   }
 
