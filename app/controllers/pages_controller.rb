@@ -7,7 +7,6 @@ class PagesController < ApplicationController
     @upcoming = section("upcoming")
     if current_user
       movie_titles = current_user.suggest
-      raise
       @movies = movie_titles.map do |title|
         movie_id = helpers.find_movie_id(title)
         {

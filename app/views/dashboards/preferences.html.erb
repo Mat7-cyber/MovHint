@@ -9,102 +9,69 @@
 
 <div class="container">
 
-  <h1><strong>Your favorite Personnalities</strong></h1>
-<%# test %>
+  <h1 style="font-size: 16px;letter-spacing: 1px;text-align: center;"><strong>Your favorite Personnalities</strong></h1>
+  <hr>
 
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="padding: 30px">
-    <div class="carousel-inner">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="padding: 0px 20px 20px;">
+    <div class="carousel-inner" style="overflow: scroll">
 
       <div class="carousel-item active">
         <div class="carousel-images-row d-flex justify-content-center">
-
-          <img
-            class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
-            src="https://images.rtl.fr/~c/770v513/rtl/www/1076683-leonardo-dicaprio-est-l-un-des-acteurs-les-plus-payes-avec-45-millions-de-dollars-entre-2013-et-2014.jpg"
-            alt="Leonardo DiCaprio"
-          >
-          <img
-            class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
-            src="https://cache.cosmopolitan.fr/data/photo/w1000_ci/1mo/josh-hartnett-devenu.jpg"
-            alt="Josh Hartnett"
-          >
-          <img
-            class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
-            src="https://cdn-s-www.bienpublic.com/images/2A3FBF38-8CE6-402D-9A0C-0A52D653B667/NW_raw/will-smith-complete-le-podium-avec-un-salaire-de-40-millions-de-dollars-touches-pour-quot-king-richard-quot-un-film-produit-notamment-par-la-chaine-hbo-dans-lequel-il-interpretera-le-pere-des-celebres-joueuses-de-tennis-venus-et-serena-williams-la-encore-outre-une-sortie-en-salle-le-long-metrage-sera-egalement-disponible-en-streaming-photo-gage-skidmore-afp-1629384683.jpg"
-            alt="Will Smith"
-          >
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <div class="carousel-images-row d-flex justify-content-center">
-
-          <img
-            class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
-            src="https://images.rtl.fr/~c/770v513/rtl/www/1076683-leonardo-dicaprio-est-l-un-des-acteurs-les-plus-payes-avec-45-millions-de-dollars-entre-2013-et-2014.jpg"
-            alt="Leonardo DiCaprio"
-          >
-          <img
-            class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
-            src="https://cache.cosmopolitan.fr/data/photo/w1000_ci/1mo/josh-hartnett-devenu.jpg"
-            alt="Josh Hartnett"
-          >
-          <img
-            class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
-            src="https://cdn-s-www.bienpublic.com/images/2A3FBF38-8CE6-402D-9A0C-0A52D653B667/NW_raw/will-smith-complete-le-podium-avec-un-salaire-de-40-millions-de-dollars-touches-pour-quot-king-richard-quot-un-film-produit-notamment-par-la-chaine-hbo-dans-lequel-il-interpretera-le-pere-des-celebres-joueuses-de-tennis-venus-et-serena-williams-la-encore-outre-une-sortie-en-salle-le-long-metrage-sera-egalement-disponible-en-streaming-photo-gage-skidmore-afp-1629384683.jpg"
-            alt="Will Smith"
-          >
-        </div>
-      </div>
-
-    </div>
-
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselExampleControls"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon d-none" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselExampleControls"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon d-none" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
-  <h1 ><strong>Your favourite movies</strong></h1>
-  <ul class="remove-bullet">
-    <% @movies.each do |movie| %>
-      <li><hr>
-        <div class="responsive-poster-pref"
-        data-controller="preferences"
-        data-preferences-movie-id-value="<%= movie["id"] %>">
-          <div class="flexsearched">
-            <div>
-              <div class="d-inline p-3" data-action="click->preferences#removePreference"><i class="fa-solid fa-trash-can likeplacement"></i></div>
-              
-              <%= image_tag "https://image.tmdb.org/t/p/original/#{movie["poster_path"]}", alt: "#{movie["original_title"]} Poster", class: "card-movieposter-pref postersearched" %>
-              <div class="voteplacementpref"><p> <%= movie["vote_average"].round(2) %> <i class="fa-solid fa-star"></i></p></div>
-            </div>
-            <div class="descriptionsearch">
-
-              <h4 style="color: #DAAD00"><%= movie["original_title"] %></h4>
-              <p><i class="fa-regular fa-calendar-check" style="margin-right: 8px;"></i><%= movie["release_date"] %></p>
-              <p><i class="fa-regular fa-clock" style="margin-right: 8px;"></i><%= movie["runtime"] %></p>
-              <p><i class="fa-solid fa-film" style="margin-right: 8px;"></i><%= movie["genres"] %></p>
-
-            </div>
+          <div style="margin: 0 10px;">
+            <img
+              class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
+              src="https://img-4.linternaute.com/8B2C3rvHC7Gy0HMgUJno-qC68Rg=/1500x/smart/6829ea46fe924b9fa17cc423a7b230f5/ccmcms-linternaute/50214018.jpg"
+              alt="Leonardo DiCaprio"
+            >
+          </div>
+          <div style="margin: 0 10px;">
+            <img
+              class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
+              src="https://fr.web.img2.acsta.net/pictures/20/02/10/10/37/1374948.jpg"
+              alt="Brad Pitt"
+            >
+          </div>
+          <div style="margin: 0 10px;">
+            <img
+                class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
+                src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Christoph_Waltz_Viennale_2017_f_%28cropped%29.jpg"
+                alt="Christopher Waltz"
+              >
+          </div>
+          <div style="margin: 0 10px;">
+            <img
+              class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
+              src="https://cdn.britannica.com/16/221316-050-680EBB62/Steve-Buscemi-2012.jpg"
+              alt="Steve Buscemi"
+            >
+          </div>
+          <div style="margin: 0 10px;">
+            <img
+              class="avatar-bordered avatarsearch d-block w-25 carousel-image mx-2"
+              src="https://flxt.tmsimg.com/assets/74053_v9_bb.jpg"
+              alt="Russell Crowe"
+            >
           </div>
         </div>
-      </li>
-    <% end %>
-  </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 style="font-size: 16px;letter-spacing: 1px;text-align: center;"><strong>Your favourite movies</strong></h1>
+<hr>
+<ul class="remove-bullet">
+  <% @movies.each do |movie| %>
+    <li>
+      <div class="responsive-poster-pref"
+        data-controller="preferences"
+        data-preferences-movie-id-value="<%= movie["id"] %>">
+       <div class="flexsearched">
+          <div class="d-inline p-3" data-action="click->preferences#removePreference"><i class="fa-solid fa-trash-can likeplacement" style="position: absolute;display: inline-block;top: 30px;left: 10px;color: #F00;"></i></div>
+          <%= image_tag "https://image.tmdb.org/t/p/original/#{movie["poster_path"]}", alt: "#{movie["original_title"]} Poster", class: "card-movieposter-pref postersearched" %>
+       </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
 </div>

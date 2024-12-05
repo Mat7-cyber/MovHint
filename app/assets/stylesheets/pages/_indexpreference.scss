@@ -3,6 +3,8 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-radius: 10px;
+  mask-image: radial-gradient(farthest-corner, #1B1810 75%, rgba(0, 0, 0, 0) 90%);
 
 }
 
@@ -16,7 +18,10 @@
 .remove-bullet {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .voteplacementpref {

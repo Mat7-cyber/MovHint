@@ -54,7 +54,7 @@
 
             <div class="movie">
               <div class="rating">
-                <span>⭐ <%= result["vote_average"] %></span>
+                <span>⭐ <%= result["vote_average"].round(2) %></span>
               </div>
               <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
               <p><%= @genres[result["genre_ids"].first] %></p>
@@ -78,7 +78,7 @@
 
           <div class="movie">
             <div class="rating">
-              <span>⭐ <%= result["vote_average"] %></span>
+              <span>⭐ <%= result["vote_average"].round(2) %></span>
             </div>
             <%= image_tag "https://image.tmdb.org/t/p/w200#{result['poster_path']}", alt: result["title"] %>
             <p><%= @genres[result["genre_ids"].first] %></p>

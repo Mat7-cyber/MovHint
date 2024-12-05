@@ -5,7 +5,7 @@
       <div class="movieresult">
        <div class="movie">
         <div class="rating">
-        <span>⭐ <%= movie["vote_average"] %></span>
+        <span>⭐ <%= movie["vote_average"].round(2) %></span>
         </div>
         <%= image_tag "https://image.tmdb.org/t/p/w200#{movie['poster_path']}", alt: movie["title"] %>
         <p><%= @genres[movie["genre_ids"].first] %></p>
