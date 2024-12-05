@@ -21,9 +21,9 @@ class User < ApplicationRecord
       temperature: 1,
       messages: [{ role: "system", content:
                   "Context: Basé sur l'API TMDB.
-                  Tu vas recevoir une liste de titre de films TMDB
+                  Tu vas recevoir une liste de titre de films TMDB.
                   Suggères moi 10 films qui correspondents.
-                  Si la liste est vide, envoie-moi les 10 plus grands films de l'histoire du cinéma.
+                 
                   Tu ne peux pas me suggérer un film que tu as reçu
                   Instructions :
                   1. Je veux une réponse en format JSON, non verbeuse.
@@ -32,7 +32,8 @@ class User < ApplicationRecord
                   "},
                 { role: "user", content: titles.join }] # TODO : Remplacer la string par titles
     })
-    content = JSON.parse(chatgpt_response["choices"][0]["message"]["content"])["suggestions"]
+    sleep(3)
+    JSON.parse(chatgpt_response["choices"][0]["message"]["content"])["suggestions"]
   end
 
   private
