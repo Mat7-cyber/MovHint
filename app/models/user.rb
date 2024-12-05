@@ -35,7 +35,6 @@ class User < ApplicationRecord
                   "},
                 { role: "user", content: titles.join }] # TODO : Remplacer la string par titles
     })
-    sleep(3)
     JSON.parse(chatgpt_response["choices"][0]["message"]["content"])["suggestions"]
   end
 
