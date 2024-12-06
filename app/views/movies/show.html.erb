@@ -22,7 +22,7 @@
 		<h1 class="movie-title"><strong><%= @movie["original_title"]%></strong></h1>
 
 		<div class="movie-tagline">
-				<span><h4 data-display-text-text-value="<%= @movie["tagline"]%>"
+				<span><h4 data-display-text-text-value="<%= truncate(@movie["tagline"], length: 43, separator: '', omission: '...') %>"
 				data-display-text-target="text"
 				data-controller="display-text"></h4></span>
 		</div>

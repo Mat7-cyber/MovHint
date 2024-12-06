@@ -1,7 +1,8 @@
 <%= render "shared/searchbar" %>
   <div class="moviesresult">
     <% @movies["results"].each do |movie| %>
-      <%= link_to movie_path(movie["original_title"]) do %>
+    <div style="display: flex;justify-content: center; height: 25px;"><p><strong style="color: #DAAD00;"><%= movie["title"] %></strong></p></div>
+      <%= link_to movie_path(movie["original_title"]), style: "height: 200px;" do %>
       <div class="movieresult">
        <div class="movie">
         <div class="rating">
@@ -12,11 +13,10 @@
         </div>
       <div class="movie-details">
         <div class="movie-meta">
-          <p><strong><%= movie["title"] %></strong></p>
           <p>Release date :</p>
             <span><%= movie["release_date"] %></span>
           <p>Overview</p>
-            <p style="display: flex;color: #FAE9B8;text-align: initial;font-size: 10px;"><%= truncate(movie["overview"], length: 100, separator: '', omission: '...')%></p>
+            <p style="display: flex;color: #FAE9B8;text-align: initial;font-size: 12px;"><%= truncate(movie["overview"], length: 100, separator: '', omission: '...')%></p>
         </div>
       </div>
     </div>
